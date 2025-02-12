@@ -18,6 +18,10 @@ public class ItemController {
 
     private final ItemService itemService;
 
+    /**
+     * 상품 목록 전체 조회
+     * @return
+     */
     @GetMapping("/api/items")
     public ResponseEntity<?> readAll() {
         List<ItemRead> items = itemService.findAll();

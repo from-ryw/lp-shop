@@ -111,6 +111,7 @@ public class TokenAccountHelper implements AccountHelper {
             // 토큰 차단 데이터에 해당 토큰이 없다면
             if (!blockService.has(refreshToken)) {
                 // 차단 토큰으로 추가
+                blockService.add(refreshToken);
             }
         }
     }
