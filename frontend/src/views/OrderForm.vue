@@ -114,7 +114,7 @@ const submit = async () => {
           </ul>
 
           <div class="border p-4 bg-light h5 rounded text-center total-price">
-            <span>합계</span>
+            <span>합계 </span>
             <b>{{ computedTotalPrice.toLocaleString() }}원</b>
           </div>
 
