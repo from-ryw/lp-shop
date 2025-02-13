@@ -93,11 +93,11 @@ const submit = async () => {
       </div>
 
       <div class="row g-5">
-        <!-- 구입 목록 -->
+        <!-- 주문 상품 -->
         <div class="col-md-5 col-lg-4 order-md-last">
           <div class="mb-3">
             <span class="h5 mb-3 align-middle me-2">
-              <b>구입 목록</b>
+              <b>주문 상품</b>
             </span>
             <span class="badge bg-primary rounded-pill align-middel">{{ state.items.length }}</span>
           </div>
