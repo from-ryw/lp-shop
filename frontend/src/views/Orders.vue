@@ -55,11 +55,11 @@ const load = async (pageIdx) => {
         <thead>
         <tr>
           <th class="text-center">번호</th>
-          <th>주문자명</th>
-          <th>결제 수단</th>
-          <th>결제 금액</th>
-          <th>결제일시</th>
-          <th>자세히 보기</th>
+          <th class="text-center">주문자명</th>
+          <th class="text-center">결제 수단</th>
+          <th class="text-center">결제 금액</th>
+          <th class="text-center">결제일시</th>
+          <th class="text-center">자세히 보기</th>
         </tr>
         </thead>
         <tbody>
@@ -70,9 +70,9 @@ const load = async (pageIdx) => {
           <td class="text-center">{{ getListNum(idx) }}</td>
           <td>{{ o.name }}</td>
           <td>{{ o.payment === 'card' ? '카드' : '무통장입금'}}</td>
-          <td>{{ o.amount.toLocaleString() }}원</td>
-          <td>{{ o.createdAt.toLocaleString() }}</td>
-          <td>
+          <td class="text-end">{{ o.amount.toLocaleString() }}원</td>
+          <td class="text-center">{{ o.createdAt.toLocaleString() }}</td>
+          <td class="text-center">
             <router-link :to="`/orders/${o.id}`">자세히 보기</router-link>
           </td>
         </tr>
