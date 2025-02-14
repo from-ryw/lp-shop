@@ -705,3 +705,15 @@
     - **응답 (Response)**
       - **200 OK**
         - 주문 생성 성공
+
+<br>
+<br>
+
+## 학습한 개념 및 기술
+
+해당 내용은 노션으로 정리하였습니다. 하단 개념을 클릭하면 이동합니다.
+
+- [인터셉터](https://cerulean-log-e29.notion.site/199e0e4e088f80a38624f6072a626bd2?pvs=73)
+- [토큰](https://cerulean-log-e29.notion.site/199e0e4e088f8079902df10db200050c?pvs=73)
+- [암호화 및 복호화 / 해싱](https://cerulean-log-e29.notion.site/199e0e4e088f80b38a16cf8be5eb9e07?pvs=73)
+- [페이지네이션션](https://cerulean-log-e29.notion.site/199e0e4e088f80c3a4dbc0caf3d70446?pvs=73)
