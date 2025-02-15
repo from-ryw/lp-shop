@@ -726,3 +726,13 @@
 - [토큰](https://cerulean-log-e29.notion.site/199e0e4e088f8079902df10db200050c?pvs=73)
 - [암호화 및 복호화 / 해싱](https://cerulean-log-e29.notion.site/199e0e4e088f80b38a16cf8be5eb9e07?pvs=73)
 - [페이지네이션션](https://cerulean-log-e29.notion.site/199e0e4e088f80c3a4dbc0caf3d70446?pvs=73)
+
+<br>
+<br>
+
+## Changelog
+
+### [2025-02-15] - URL 구조 개선
+- 불필요한 `v1` 제거하여 API URL 단순화 (`/v1` → `/api/items`)
+- 클래스 단위의 `@RequestMapping` 적용 (각 도메인 Controller에서 공통 URL 매핑)
+- 개별 메서드의 `@GetMapping`에서 중복된 URL 제거
