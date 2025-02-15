@@ -30,13 +30,13 @@ instance.interceptors.response.use((res) => {
             const accessToken = res.data;
 
             // 계정 스토어
-            const accountsStore = useAccountStore();
+            const accountStore = useAccountStore();
 
             // 계정 스토어의 액세스 토큰 변경
-            accountsStore.setAccessToken(accessToken);
+            accountStore.setAccessToken(accessToken);
 
             // 요청 액세스 토큰 교체
-            config.headers.authorization = `Bearer ${accountsStore.accessToken}`;
+            config.headers.authorization = `Bearer ${accountStore.accessToken}`;
 
             // 중복 재요청 방지를 위한 프로퍼티 추가
             config.retried = true;
@@ -57,11 +57,11 @@ instance.interceptors.response.use((res) => {
 // HTTP 요청 설정 생성
 const generateConfig = () => {
     // 계정 스토어
-    const accountsStore = useAccountStore();
+    const accountStore = useAccountStore();
 
-    if (accountsStore.accessToken) {
+    if (accountStore.accessToken) {
         return {
-            headers: {authorization: `Bearer ${accountsStore.accessToken}`}
+            headers: {authorization: `Bearer ${accountStore.accessToken}`}
         };
     }
 
