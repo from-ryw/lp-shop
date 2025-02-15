@@ -90,13 +90,13 @@
 
 1. **홈(상품 목록) 페이지**
 
-   - 전체 상품 조회 (`GET /v1/api/items`)
+   - 전체 상품 조회 (`GET /api/items`)
    - 로그인 바로가기
    - 회원가입 바로가기
    - 주문 내역 바로가기
    - 장바구니 바로가기
-   - 로그아웃 기능 (`POST /api/account/logout`)
-   - 장바구니 담기 기능 (`POST /v1/api/carts`)
+   - 로그아웃 기능 (`POST /api/accounts/logout`)
+   - 장바구니 담기 기능 (`POST /api/carts`)
      - [장바구니 담기] 버튼 클릭 알림(alert) 표시
        - 로그인 전: ‘로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?’
        - 로그인 후: ‘장바구니에 상품을 담았습니다. 장바구니로 이동하시겠습니까?’
@@ -112,7 +112,7 @@
 
 2. **회원가입 페이지**
 
-   - 회원 정보 입력 후 가입 요청 (`POST /v1/api/account/join`)
+   - 회원 정보 입력 후 가입 요청 (`POST /api/accounts/join`)
    - 입력 필드: 이름, 이메일, 패스워드
    - 가입 완료 시 알림(alert) 표시 후 메인 페이지로 이동
      - 가입 완료: ‘로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?’
@@ -122,7 +122,7 @@
 
 3. **로그인 페이지**
 
-   - 로그인 정보 입력 후 로그인 요청 (`POST /v1/api/account/login`)
+   - 로그인 정보 입력 후 로그인 요청 (`POST /api/accounts/login`)
    - 입력 필드: 이메일, 패스워드
    - 로그인 완료 시 메인 페이지로 이동
      - 로그인 완료: 메인 페이지로 이동
@@ -132,7 +132,7 @@
 
 4. **장바구니 페이지**
 
-   - 장바구니 전체 상품 조회 (`GET /v1/api/cart/items`)
+   - 장바구니 전체 상품 조회 (`GET /api/carts/items`)
    - 주문하기 바로가기
    - 장바구니 상품 삭제 기능
      - [x] 클릭 알림(alert) 표시. ‘선택하신 장바구니의 상품을 삭제했습니다.
@@ -141,13 +141,13 @@
 
 5. **주문하기 페이지**
 
-   - 주문 정보 입력 후 주문 요청 (`POST /v1/api/orders`)
+   - 주문 정보 입력 후 주문 요청 (`POST /api/orders`)
    - 입력 필드:
      - 주문자 정보: 이름, 주소
      - 결제 수단: 신용카드 / 무통장입금 선택
      - 카드 결제 선택 시 카드 번호 입력 필드 활성화
    - 주문 상품 목록 표시: 선택한 상품과 총 결제 금액을 보여줌
-     - 주문 상품 목록 조회 (`GET /v1/api/cart/items`)
+     - 주문 상품 목록 조회 (`GET /api/carts/items`)
    - [결제하기] 버튼 클릭 시 주문 완료 및 알림(alert) 표시 후 메인 페이지로 이동
      - 결제 수단 ‘신용카드’ 선택 시
        - ’주문이 완료되었습니다.’
@@ -158,7 +158,7 @@
 
 6. **주문 내역 페이지**
 
-   - 로그인한 회원의 주문 내역 조회 (`GET /v1/api/orders`)
+   - 로그인한 회원의 주문 내역 조회 (`GET /api/orders`)
    - 주문 내역 목록을 테이블 형식으로 표시
      - 주문자명, 결제 수단, 결제 금액, 결제 일시, 자세히 보기
    - 페이지네이션 적용
@@ -170,7 +170,7 @@
 
 7. **주문 상세 내역 페이지**
 
-   - 해당 주문의 상세 내역 조회 (`GET /v1/api/orders/{id}`)
+   - 해당 주문의 상세 내역 조회 (`GET /api/orders/{id}`)
    - 주문 내용 및 주문 상품 목록 표시
      - 주문 내용: 주문 ID, 주문자명, 주소, 결제 금액, 결제 수단, 결제 일시
      - 주문 상품 목록: 상품명
@@ -191,11 +191,11 @@
 
 ### **회원(member) & 계정(account)**
 
-1. **회원 가입 API (`POST /v1/api/account/join`)**
+1. **회원 가입 API (`POST /api/accounts/join`)**
 
    - **사용자가 회원 가입을 진행하는 API**
    - **Method:** `POST`
-   - **URL:** `/v1/api/account/join`
+   - **URL:** `/api/accounts/join`
    - **인증 필요:** X (회원 가입이므로 인증 불필요)
    - **요청 (Request)**
 
@@ -233,11 +233,11 @@
 <br>
 
 
-2. **로그인 API (`POST /v1/api/account/login`)**
+2. **로그인 API (`POST /api/accounts/login`)**
 
    - **사용자가 아이디와 비밀번호를 입력하여 로그인하는 API**
    - **Method:** `POST`
-   - **URL:** `/v1/api/account/login`
+   - **URL:** `/api/accounts/login`
    - **인증 필요:** X (로그인 시에는 인증 불필요)
    - **요청 (Request)**
 
@@ -273,11 +273,11 @@
 
 <br>
 
-3. **로그인 여부 조회(`GET /v1/api/account/check`)**
+3. **로그인 여부 조회(`GET /api/accounts/check`)**
 
    - **사용자의 로그인 여부를 확인하는 API**
    - **Method:** `GET`
-   - **URL:** `/v1/api/account/check`
+   - **URL:** `/api/accounts/check`
    - **인증 필요:** O (액세스 토큰 또는 리프레시 토큰 필요)
    - **요청 (Request)**
 
@@ -301,11 +301,11 @@
 
 <br>
 
-4. **로그아웃(`POST /v1/api/account/logout`)**
+4. **로그아웃(`POST /api/accounts/logout`)**
 
    - **사용자의 로그아웃을 수행하는 API**
    - **Method:** `POST`
-   - **URL:**`/v1/api/account/logout`
+   - **URL:**`/api/accounts/logout`
    - **요청 (Request)**
 
      - **Headers:**
@@ -325,11 +325,11 @@
 
 <br>
 
-5. **액세스 토큰 재발급(`GET /v1/api/account/token`)**
+5. **액세스 토큰 재발급(`GET /api/accounts/token`)**
 
    - **유효한 리프레시 토큰을 이용해 새로운 액세스 토큰을 발급하는 API**
    - **Method:** `GET`
-   - **URL:** `/v1/api/account/token`
+   - **URL:** `/api/accounts/token`
    - **요청 (Request)**
 
      - **Headers:**
@@ -350,11 +350,11 @@
 
 ### **상품(item)**
 
-1.  **전체 상품 목록 조회(`GET /v1/api/items`)**
+1.  **전체 상품 목록 조회(`GET /api/items`)**
 
     - **모든 상품 목록을 조회하는 API**
     - **Method:** `GET`
-    - **URL:** `/v1/api/items`
+    - **URL:** `/api/items`
     - **요청 (Request)**
 
       - **Headers:**
@@ -410,11 +410,11 @@
 
 ### **장바구니(cart)**
 
-1.  **로그인 회원의 장바구니 목록 조회(`GET /v1/api/cart/items`)**
+1.  **로그인 회원의 장바구니 목록 조회(`GET /api/carts/items`)**
 
     - **로그인한 회원의 장바구니에 담긴 모든 상품 목록을 조회하는 API**
     - **Method:** `GET`
-    - **URL:** `/v1/api/cart/items`
+    - **URL:** `/api/carts/items`
     - **인증 필요:** O (액세스 토큰 필요)
       - 로그인한 사용자의 장바구니 목록을 가져오기 위해 인증 필요
     - **요청 (Request)**
@@ -460,11 +460,11 @@
 
 <br>
  
-2.  **로그인 회원의 장바구니에 상품 추가(`POST /v1/api/carts`)**
+2.  **로그인 회원의 장바구니에 상품 추가(`POST /api/carts`)**
 
     - **로그인한 회원의 장바구니에 상품을 추가하는 API**
     - **Method:** `POST`
-    - **URL:** `/v1/api/carts`
+    - **URL:** `/api/carts`
     - **인증 필요:** O (액세스 토큰 필요)
       - 로그인한 사용자의 장바구니에 추가하기 위해 인증 필요
     - **요청 (Request)**
@@ -493,11 +493,11 @@
 
 <br>
 
-3.  **로그인 회원의 장바구니에서 상품 삭제(`DELETE /v1/api/cart/items/{itemId}`)**
+3.  **로그인 회원의 장바구니에서 상품 삭제(`DELETE /api/carts/items/{itemId}`)**
 
     - **로그인한 회원의 장바구니에서 특정 상품을 삭제하는 API**
     - **Method:** `DELETE`
-    - **URL:** `/v1/api/cart/items/{itemId}`
+    - **URL:** `/api/carts/items/{itemId}`
     - **인증 필요:** O (액세스 토큰 필요)
       - 로그인한 사용자의 장바구니에서 삭제하기 위해 인증 필요
     - **요청 (Request)**
@@ -528,11 +528,11 @@
 
 ### **주문(order)**
 
-1.  **로그인 회원의 전체 주문 내역 조회(`GET /v1/api/orders`)**
+1.  **로그인 회원의 전체 주문 내역 조회(`GET /api/orders`)**
 
     - **로그인한 회원의 전체 주문 목록을 페이지네이션하여 조회하는 API**
     - **Method:** `GET`
-    - **URL:** `/v1/api/orders`
+    - **URL:** `/api/orders`
     - **인증 필요:** O (액세스 토큰 필요)
       - 로그인한 사용자의 주문 목록을 가져오기 위해 인증 필요
     - **페이징 지원**:
@@ -603,11 +603,11 @@
 
 <br>
 
-2.  **로그인 회원의 특정 주문 내역 조회(`GET /v1/api/orders/{id}`)**
+2.  **로그인 회원의 특정 주문 내역 조회(`GET /api/orders/{id}`)**
 
     - **로그인한 회원이 특정 주문 내역을 조회하는 API**
     - **Method:** `GET`
-    - **URL:** `/v1/api/orders/{id}`
+    - **URL:** `/api/orders/{id}`
     - **인증 필요:** O (액세스 토큰 필요)
       - 로그인한 사용자의 특정 주문 내역을 가져오기 위해 인증 필요
     - **요청 (Request)**
@@ -678,11 +678,11 @@
 
 <br>
 
-3.  **로그인 회원의 주문 추가(`POST /v1/api/orders`)**
+3.  **로그인 회원의 주문 추가(`POST /api/orders`)**
 
     - **로그인한 회원이 주문 생성하는 API**
     - **Method:** `POST`
-    - **URL:** `/v1/api/orders`
+    - **URL:** `/api/orders`
     - **인증 필요:** O (액세스 토큰 필요)
       - 로그인한 사용자의 주문을 생성하기 위해 인증 필요
     - **요청 (Request)**
@@ -732,7 +732,8 @@
 
 ## Changelog
 
-### [2025-02-15] - URL 구조 개선
+### [2025-02-15] - URL 구조 개선 및 상품 목록 수정
 - 불필요한 `v1` 제거하여 API URL 단순화 (`/v1` → `/api/items`)
 - 클래스 단위의 `@RequestMapping` 적용 (각 도메인 Controller에서 공통 URL 매핑)
 - 개별 메서드의 `@GetMapping`에서 중복된 URL 제거
+- 상품 목록에서 할인율이 0%일 경우, 할인율을 표시하지 않도록 수정
