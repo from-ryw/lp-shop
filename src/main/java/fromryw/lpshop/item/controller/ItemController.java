@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1")
+@RequestMapping("/api/items")
 @RequiredArgsConstructor
 public class ItemController {
 
@@ -22,7 +22,7 @@ public class ItemController {
      * 상품 목록 전체 조회
      * @return
      */
-    @GetMapping("/api/items")
+    @GetMapping
     public ResponseEntity<?> readAll() {
         List<ItemRead> items = itemService.findAll();
         return new ResponseEntity<>(items, HttpStatus.OK);

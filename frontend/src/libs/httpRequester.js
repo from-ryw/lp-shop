@@ -24,19 +24,19 @@ instance.interceptors.response.use((res) => {
             }
 
             // 액세스 토큰이 만료된 것일도 있으므로 (쿠키에 있는) 리프레시 토큰으로 액세스 토큰 요청
-            const res = await axios.get("/v1/api/account/token");
+            const res = await axios.get("/api/accounts/token");
 
             // 액세스 토큰
             const accessToken = res.data;
 
             // 계정 스토어
-            const accountStore = useAccountStore();
+            const accountsStore = useAccountStore();
 
             // 계정 스토어의 액세스 토큰 변경
-            accountStore.setAccessToken(accessToken);
+            accountsStore.setAccessToken(accessToken);
 
             // 요청 액세스 토큰 교체
-            config.headers.authorization = `Bearer ${accountStore.accessToken}`;
+            config.headers.authorization = `Bearer ${accountsStore.accessToken}`;
 
             // 중복 재요청 방지를 위한 프로퍼티 추가
             config.retried = true;
@@ -57,11 +57,11 @@ instance.interceptors.response.use((res) => {
 // HTTP 요청 설정 생성
 const generateConfig = () => {
     // 계정 스토어
-    const accountStore = useAccountStore();
+    const accountsStore = useAccountStore();
 
-    if (accountStore.accessToken) {
+    if (accountsStore.accessToken) {
         return {
-            headers: {authorization: `Bearer ${accountStore.accessToken}`}
+            headers: {authorization: `Bearer ${accountsStore.accessToken}`}
         };
     }
 

@@ -20,7 +20,7 @@ import java.util.Map;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1")
+@RequestMapping("/api/accounts")
 public class AccountController {
 
     private final AccountHelper accountHelper;
@@ -32,7 +32,7 @@ public class AccountController {
      * @param joinReq
      * @return
      */
-    @PostMapping("/api/account/join")
+    @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody AccountJoinRequest joinReq) {
         // 입력 값이 비어 있다면
         if (!StringUtils.hasLength(joinReq.getName())
@@ -57,7 +57,7 @@ public class AccountController {
      * @param loginReq
      * @return
      */
-    @PostMapping("/api/account/login")
+    @PostMapping("/login")
     public ResponseEntity<?> login(HttpServletRequest req, HttpServletResponse res, @RequestBody AccountLoginRequest loginReq) {
         // 입력 값이 비어 있다면
         if (!StringUtils.hasLength(loginReq.getLoginId())
@@ -80,7 +80,7 @@ public class AccountController {
      * @param req
      * @return
      */
-    @GetMapping("/api/account/check")
+    @GetMapping("check")
     public ResponseEntity<?> check(HttpServletRequest req) {
         return new ResponseEntity<>(accountHelper.isLoggedIn(req), HttpStatus.OK);
     }
@@ -91,7 +91,7 @@ public class AccountController {
      * @param res
      * @return
      */
-    @PostMapping("/api/account/logout")
+    @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest req, HttpServletResponse res) {
         accountHelper.logout(req, res);
         return new ResponseEntity<>(HttpStatus.OK);
@@ -102,7 +102,7 @@ public class AccountController {
      * @param req
      * @return
      */
-    @GetMapping("/api/account/token")
+    @GetMapping("/token")
     public ResponseEntity<?> regenerate(HttpServletRequest req) {
         String accessToken = "";
         String refreshToken = HttpUtils.getCookieValue(req, AccountConstants.REFRESH_TOKEN_NAME);

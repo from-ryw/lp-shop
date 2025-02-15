@@ -14,7 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/v1")
+@RequestMapping("/api/orders")
 @RequiredArgsConstructor
 public class OrderController {
 
@@ -22,28 +22,12 @@ public class OrderController {
     private final OrderService orderService;
 
     /**
-     * 로그인 회원의 전체 주문 목록 조회
-     * @param req
-     * @return
-     */
-//    @GetMapping("/api/orders")
-//    public ResponseEntity<?> readAll(HttpServletRequest req) {
-//        // 로그인 회원 아이디
-//        Integer memberId = accountHelper.getMemberId(req);
-//
-//        // 주문 목록
-//        List<OrderRead> orders = orderService.findAll(memberId);
-//
-//        return new ResponseEntity<>(orders, HttpStatus.OK);
-//    }
-
-    /**
      * 로그인 회원이 전체 주문 목록 조회(페이지네이션)
      * @param req
      * @param pageable
      * @return
      */
-    @GetMapping("/api/orders")
+    @GetMapping
     public ResponseEntity<?> readAll(HttpServletRequest req, Pageable pageable) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
@@ -60,7 +44,7 @@ public class OrderController {
      * @param id
      * @return
      */
-    @GetMapping("/api/orders/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> read(HttpServletRequest req, @PathVariable("id") Integer id) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
@@ -82,7 +66,7 @@ public class OrderController {
      * @param orderReq
      * @return
      */
-    @PostMapping("/api/orders")
+    @PostMapping
     public ResponseEntity<?> add(HttpServletRequest req, @RequestBody OrderRequest orderReq) {
         // 로그인 회원 아이디
         Integer memberId = accountHelper.getMemberId(req);
