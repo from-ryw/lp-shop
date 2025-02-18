@@ -70,7 +70,7 @@ public class BaseOrderService implements OrderService {
 
     // 주문 내용 저장
     @Override
-    public void order(OrderRequest orderReq, Integer memberId) {
+    public Integer order(OrderRequest orderReq, Integer memberId) {
         // 주문 상품의 최종 결제 금액을 계산
         List<ItemRead> items = itemService.findAll(orderReq.getItemIds());
         long amount = 0L;
@@ -106,5 +106,7 @@ public class BaseOrderService implements OrderService {
         if ("cart".equals(orderReq.getOrderType())) {
             cartService.removeAll(order.getMemberId());
         }
+
+        return order.getId();
     }
 }

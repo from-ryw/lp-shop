@@ -35,7 +35,13 @@ const submit = async () => {
   switch (res.status) {
     case 200:
       accountStore.setAccessToken(res.data); // 응답받은 데이터(액세스 토큰)를 계정 스토어의 액세스 토큰으로 입력
-      await router.push("/");
+
+      // redirect 처리
+      if (window.history.length > 1) {
+        router.go(-1);
+      } else {
+        await router.push("/");
+      }
       break;
 
     case 404:

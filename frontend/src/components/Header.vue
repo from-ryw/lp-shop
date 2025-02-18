@@ -16,7 +16,13 @@ const logoutAccount = async () => {
   if (res.status === 200) {
     accountStore.setAccessToken(""); // 계정 스토어의 액세스 토큰 값 초기화
     accountStore.setLoggedIn(false);
-    await router.push("/");
+
+    // redirect 처리
+    if (window.history.length > 1) {
+      router.go(-1);
+    } else {
+      await router.push("/");
+    }
   }
 }
 </script>

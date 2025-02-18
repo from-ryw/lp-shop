@@ -80,7 +80,13 @@ const submit = async () => {
     }
 
     window.alert(message.join("\n"));
-    await router.push("/");
+
+    // 주문 id가 있다면 주문 상세 내역 페이지로 이동
+    if (res.data.id) {
+      await router.push(`/orders/${res.data.id}`);
+    } else {
+      await router.push("/");
+    }
   }
 };
 

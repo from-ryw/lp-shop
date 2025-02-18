@@ -81,7 +81,7 @@ const state = reactive({
             <tbody>
             <tr v-for="(item, idx) in state.order.items">
               <td>{{ idx + 1 }}</td>
-              <td>[{{item.artist}}] {{ item.name }}</td>
+              <td><router-link :to="`/items/${item.id}`">[{{item.artist}}] {{ item.name }}</router-link></td>
             </tr>
             </tbody>
             <tfoot>

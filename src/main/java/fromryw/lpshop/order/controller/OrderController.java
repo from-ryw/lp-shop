@@ -13,6 +13,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+
 @Controller
 @RequestMapping("/api/orders")
 @RequiredArgsConstructor
@@ -72,8 +74,8 @@ public class OrderController {
         Integer memberId = accountHelper.getMemberId(req);
 
         // 주문 입력
-        orderService.order(orderReq, memberId);
+        Integer orderId = orderService.order(orderReq, memberId);
 
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(Collections.singletonMap("id", orderId), HttpStatus.OK);
     }
 }

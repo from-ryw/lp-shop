@@ -36,7 +36,7 @@ public class ItemController {
      */
     @GetMapping("/{id}")
     public ResponseEntity<?> read(@PathVariable Integer id) {
-        // 특정 상품 조회 조회
+        // 특정 상품 조회
         ItemRead item = itemService.findById(id);
 
         // 특정 상품이 없는 경우

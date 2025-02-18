@@ -16,5 +16,5 @@ public interface OrderService {
     OrderRead find(Integer id, Integer memberId);
 
     // 주문 내역 저장
-    void order(OrderRequest orderReq, Integer memberId);
+    Integer order(OrderRequest orderReq, Integer memberId);
 }
