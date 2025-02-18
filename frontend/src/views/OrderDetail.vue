@@ -7,7 +7,7 @@ import {getOrder} from "@/services/orderService.js";
 const route = useRoute();
 
 // 반응형 상태
-const state = reactive({ // ②
+const state = reactive({
   order: {
     id: 0,
     name: "",
@@ -20,7 +20,7 @@ const state = reactive({ // ②
 });
 
 // 커스텀 생성 훅
-(async function onCreated() { // ③
+(async function onCreated() {
   const id = route.params.id;
   const res = await getOrder(id);
 
@@ -32,9 +32,9 @@ const state = reactive({ // ②
 
 <template>
   <div class="order-detail py-5">
-    <div class="container"> <!-- ④ -->
+    <div class="container">
       <div class="row">
-        <div class="order col-lg-8"> <!-- ⑤ -->
+        <div class="order col-lg-8">
           <div class="h5 mb-4">
             <b>주문 내용</b>
           </div>
@@ -67,7 +67,7 @@ const state = reactive({ // ②
             </tbody>
           </table>
         </div>
-        <div class="items col-lg-4"> <!-- ⑥ -->
+        <div class="items col-lg-4">
           <div class="h5 mb-4">
             <b>주문 상품</b>
           </div>

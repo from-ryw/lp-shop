@@ -31,6 +31,13 @@ public class Item {
     @Column(nullable = false)
     private Integer discountPer;
 
+    @Lob
+    @Column
+    private String description;
+
+    @Column(length = 100)
+    private String descriptionImgPath;
+
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -54,6 +61,8 @@ public class Item {
                 .imgPath(imgPath)
                 .price(price)
                 .discountPer(discountPer)
+                .description(description)
+                .descriptionImgPath(descriptionImgPath)
                 .build();
     }
 }

@@ -16,6 +16,7 @@ public class OrderRequest {
     private String cardNumber;
     private Long amount;
     private List<Integer> itemIds;
+    private String orderType;
 
     // 엔티티 객체로 변환
     public Order toEntity(Integer memberId) {

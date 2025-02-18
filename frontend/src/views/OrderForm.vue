@@ -1,8 +1,12 @@
 <script setup>
-import {useRouter} from "vue-router";
-import {computed, reactive} from "vue";
+import {useRoute, useRouter} from "vue-router";
+import {computed, onMounted, reactive} from "vue";
 import {addOrder} from "@/services/orderService.js";
 import {getItems} from "@/services/cartService.js";
+import {getItem} from "@/services/itemService.js";
+
+// 라우트 객체
+const route = useRoute();
 
 // 라우터 객체
 const router = useRouter();
@@ -14,7 +18,8 @@ const state = reactive({
     name: "",
     address: "",
     payment: "card",
-    cardNumber: ""
+    cardNumber: "",
+    orderType: "cart"
   }
 });
 
@@ -57,6 +62,13 @@ const submit = async () => {
   }
 
   state.form.itemIds = state.items.map(i => i.id);
+
+  // 상품 상세 페이지에서 주문하기 버튼을 누른 경우
+  const itemId = route.query.itemId;
+  if (itemId) {
+    state.form.orderType = "direct";
+  }
+
   const res = await addOrder(state.form);
 
   if (res.status === 200) {
@@ -73,13 +85,15 @@ const submit = async () => {
 };
 
 // 커스텀 생성 훅
-(async function onCreated() {
-  const res = await getItems();
+onMounted(async () => {
+  const itemId = route.query.itemId;
 
+  const res = itemId ? await getItem(itemId) : await getItems();
   if (res.status === 200) {
-    state.items = res.data;
+    // data가 배열이 아닌 경우, 배열 처리
+    state.items = Array.isArray(res.data) ? res.data : [res.data];
   }
-})();
+});
 </script>
 
 <template>

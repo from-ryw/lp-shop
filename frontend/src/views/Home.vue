@@ -1,7 +1,7 @@
 <script setup>
-import {getItem} from "@/services/itemService.js";
 import {reactive} from "vue";
 import Card from "@/components/Card.vue";
+import {getItems} from "@/services/itemService.js";
 
 // 반응형 상태
 const state = reactive({
@@ -10,7 +10,7 @@ const state = reactive({
 
 // 커스텀 생성 훅
 (async function onCreated() {
-  const res = await getItem();
+  const res = await getItems();
 
   if (res.status === 200) {
     state.items = res.data;

@@ -103,6 +103,8 @@ public class BaseOrderService implements OrderService {
         orderItemService.saveAll(newOrderItems);
 
         // 장바구니 데이터 삭제(특정 회원)
-        cartService.removeAll(order.getMemberId());
+        if ("cart".equals(orderReq.getOrderType())) {
+            cartService.removeAll(order.getMemberId());
+        }
     }
 }

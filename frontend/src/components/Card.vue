@@ -27,6 +27,11 @@ const router = useRouter();
 // 계정 스토어
 const accountStore = useAccountStore();
 
+// 특정 상품 상세페이지로 이동
+const goToDetail = () => {
+  router.push(`/items/${props.item.id}`);
+};
+
 // 장바구니에 상품 담기
 const put = async () => {
   if (!accountStore.loggedIn) {
@@ -46,7 +51,7 @@ const put = async () => {
 </script>
 
 <template>
-  <div class="card shadow-sm">
+  <div class="card shadow-sm" @click="goToDetail">
     <!-- 상품 사진 -->
     <span class="img" :style="{backgroundImage: `url(${props.item.imgPath})`}" :aria-label="`상품 사진(${props.item.name})`"></span>
 
@@ -61,7 +66,7 @@ const put = async () => {
       </p>
 
       <div class="d-flex justify-content-between align-items-center">
-        <button class="btn btn-primary btn-sm" @click="put()">장바구니 담기</button>
+        <button class="btn btn-primary btn-sm" @click.stop="put()">장바구니 담기</button>
         <!-- 상품 정가(숫자 데이터에 3자리마다 쉼표 표기) -->
         <small v-if="props.item.discountPer > 0" class="price text-muted">{{ props.item.price.toLocaleString() }}원</small>
         <!-- 상품 할인가 -->
@@ -73,6 +78,8 @@ const put = async () => {
 
 <style lang="scss" scoped>
 .card {
+  cursor: pointer;
+
   .img {
     display: inline-block;
     width: 100%;
