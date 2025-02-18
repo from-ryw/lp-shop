@@ -8,6 +8,7 @@
 <br>
 
 ## 목차
+
 - [개발 목적](#개발-목적)
 - [사용 기술](#사용-기술)
 - [프로젝트 기능](#프로젝트-기능)
@@ -16,6 +17,7 @@
 - [API](#api)
 - [프로젝트 기능](#프로젝트-기능)
 - [학습 내용](#학습-내용)
+- [변경 이력](#변경-이력)
 
 <br>
 <br>
@@ -63,6 +65,7 @@
 <br>
 
 ## 프로젝트 기능
+
 현재 LP SHOP은 기본적인 쇼핑몰 기능을 구현한 상태이며, 다음과 같은 기능을 추가할 예정입니다.
 
 1. **사용자 기능**
@@ -71,16 +74,16 @@
    - **장바구니 기능**: 로그인한 회원 장바구니에 상품 추가 및 삭제 가능
    - **주문 관리**: 주문 내역 조회 및 신규 주문 추가
 2. **개선 및 추가 기능 계획**
-    - **사용자 기능 강화**
-      - **검색 및 필터 기능 추가** – 아티스트 검색 및 필터링 기능 구현<br>
-      - **리뷰 및 평점 시스템 도입** – 사용자가 상품 리뷰 및 평점을 작성할 수 있도록 기능 추가<br>
-    - **관리자 기능 추가**
-      - **관리자 기능 확장** – 상품 및 주문을 관리할 수 있는 기능 추가
-      - **관리자 대시보드 추가** – 매출 데이터 및 사용자 관리 기능 제공
-    - **보안 및 서비스 안정성 개선**
-      - **생성자 및 수정자 필드 추가** – 생성자(createdBy) 및 수정자(updatedBy) 저장 기능 구현
-      - **예외 및 유효성 처리 보강** – 현재 미흡한 예외 및 유효성 로직을 개선
-      - **주소 API 연동** – 행정안전부 도로명 주소 API를 활용한 주소 자동 입력 기능 추가
+   - **사용자 기능 강화**
+     - **검색 및 필터 기능 추가** – 아티스트 검색 및 필터링 기능 구현<br>
+     - **리뷰 및 평점 시스템 도입** – 사용자가 상품 리뷰 및 평점을 작성할 수 있도록 기능 추가<br>
+   - **관리자 기능 추가**
+     - **관리자 기능 확장** – 상품 및 주문을 관리할 수 있는 기능 추가
+     - **관리자 대시보드 추가** – 매출 데이터 및 사용자 관리 기능 제공
+   - **보안 및 서비스 안정성 개선**
+     - **생성자 및 수정자 필드 추가** – 생성자(createdBy) 및 수정자(updatedBy) 저장 기능 구현
+     - **예외 및 유효성 처리 보강** – 현재 미흡한 예외 및 유효성 로직을 개선
+     - **주소 API 연동** – 행정안전부 도로명 주소 API를 활용한 주소 자동 입력 기능 추가
 
 <br>
 <br>
@@ -101,9 +104,11 @@
        - 로그인 전: ‘로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?’
        - 로그인 후: ‘장바구니에 상품을 담았습니다. 장바구니로 이동하시겠습니까?’
    - 로그인 여부에 따라 상단 네비게이션 바 변경 (`accountStore.loggedIn` 활용)
+
      - 로그인 전 화면
 
-       ![로그인 전 화면](https://postfiles.pstatic.net/MjAyNTAyMTVfMTAz/MDAxNzM5NTQ2NDk2NDkz.RxMJbbXvqr5lGy-9f91fXqMSGbv-etpWsPRO3G14cMUg.68ZVM99oyjKabAkhdp0mh4wd-KfE_WUtlAWGGSsK2Xog.PNG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%A0%84.png?type=w3840) 
+       ![로그인 전 화면](https://postfiles.pstatic.net/MjAyNTAyMTVfMTAz/MDAxNzM5NTQ2NDk2NDkz.RxMJbbXvqr5lGy-9f91fXqMSGbv-etpWsPRO3G14cMUg.68ZVM99oyjKabAkhdp0mh4wd-KfE_WUtlAWGGSsK2Xog.PNG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%EC%A0%84.png?type=w3840)
+
      - 로그인 후 화면
 
        ![로그인 후 화면](https://postfiles.pstatic.net/MjAyNTAyMTVfOTIg/MDAxNzM5NTQ2NDk2NDky.6SUqQofSzryYmrQLDvkfVsOBHMbviKNNeQYxiApLV8wg.Czptt30aJ5snvO9ATg7KErPvXkEdQ_7tileGkd_gK0Ig.PNG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%9B%84.png?type=w966)
@@ -146,7 +151,7 @@
    - [주문하기] 버튼 클릭 시 주문하기 페이지로 이동
    - [장바구니] 버튼 클릭 시 장바구니 담기 및 알림(alert) 표시
      - ’장바구니에 상품을 담았습니다. 장바구니로 이동하시겠습니까?’
-    
+
    ![상품 상세세 페이지](https://postfiles.pstatic.net/MjAyNTAyMThfNTgg/MDAxNzM5ODUwMzA5MjU5.Ugl-PMetYWUrNAGQJ8s2VHIb0NivEpE0GjPA06qxzJUg.A67khguBCc487rNTs7hWKmrbuLVKMMhBZRe3vMRwLw8g.PNG/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
 
 6. **주문하기 페이지**
@@ -237,11 +242,9 @@
        - `name`, `loginId`, `loginPw` 중 하나라도 입력되지 않으면 발생
      - **409 Conflict** - 중복된 `loginId` 가 존재하면 발생
 
-
 ---
 
 <br>
-
 
 2. **로그인 API (`POST /api/accounts/login`)**
 
@@ -409,16 +412,16 @@
           }
         ]
         ```
-        | 필드명        | 타입      | 설명           |
-        | ------------- | --------- | -------------- |
-        | `id`          | `integer` | 상품 아이디    |
-        | `name`        | `string`  | 상품 이름      |
-        | `artist`      | `string`  | 상품 아티스트  |
-        | `imgPath`     | `string`  | 상품 사진 경로 |
-        | `price`       | `integer` | 상품 가격      |
-        | `discountPer` | `integer` | 상품 할인율    |
-        | `description`     | `string`  | 상품 설명 |
-        | `descriptionImgPath`     | `string`  | 상품 설명 사진 경로 |
+        | 필드명               | 타입      | 설명                |
+        | -------------------- | --------- | ------------------- |
+        | `id`                 | `integer` | 상품 아이디         |
+        | `name`               | `string`  | 상품 이름           |
+        | `artist`             | `string`  | 상품 아티스트       |
+        | `imgPath`            | `string`  | 상품 사진 경로      |
+        | `price`              | `integer` | 상품 가격           |
+        | `discountPer`        | `integer` | 상품 할인율         |
+        | `description`        | `string`  | 상품 설명           |
+        | `descriptionImgPath` | `string`  | 상품 설명 사진 경로 |
         - 상품 목록 조회 성공
         - List 형태로 반환
 
@@ -438,45 +441,44 @@
         | -------------- | ------------------ | ------------------------- |
         | `Content-Type` | `application/json` | 요청 본문 타입 (JSON) |
         | `Accept` | `application/json` | 서버가 응답할 데이터 타입 |
-        
       - **Path Variable:**
         ```json
         {
           "itemId": 1
         }
         ```
-        | 필드명   | 타입      | 필수 여부 | 설명                            |
-        | -------- | --------- | --------- | ------------------------------- |
+        | 필드명   | 타입      | 필수 여부 | 설명               |
+        | -------- | --------- | --------- | ------------------ |
         | `itemId` | `integer` | Y         | 조회할 상품 아이디 |
 
     - **응답 (Response)**
       - **200 OK**
         ```json
         {
-             "id": 14,
-             "name": "선물",
-             "artist": "백예린",
-             "imgPath": "/img/YerinBaek___Present.jpg",
-             "price": 700000,
-             "discountPer": 35,
-             "description": "백예린 리메이크 앨범 [선물]의 바이닐입니다. 싱글 커버에 가사지 1장이 포함되어 있습니다.",
-             "descriptionImgPath": "/img/YerinBaek___Present_2.jpg"
-         }
+          "id": 14,
+          "name": "선물",
+          "artist": "백예린",
+          "imgPath": "/img/YerinBaek___Present.jpg",
+          "price": 700000,
+          "discountPer": 35,
+          "description": "백예린 리메이크 앨범 [선물]의 바이닐입니다. 싱글 커버에 가사지 1장이 포함되어 있습니다.",
+          "descriptionImgPath": "/img/YerinBaek___Present_2.jpg"
+        }
         ```
-        | 필드명        | 타입      | 설명           |
-        | ------------- | --------- | -------------- |
-        | `id`          | `integer` | 상품 아이디    |
-        | `name`        | `string`  | 상품 이름      |
-        | `artist`      | `string`  | 상품 아티스트  |
-        | `imgPath`     | `string`  | 상품 사진 경로 |
-        | `price`       | `integer` | 상품 가격      |
-        | `discountPer` | `integer` | 상품 할인율    |
-        | `description`     | `string`  | 상품 설명 |
-        | `descriptionImgPath`     | `string`  | 상품 설명 사진 경로 |
+        | 필드명               | 타입      | 설명                |
+        | -------------------- | --------- | ------------------- |
+        | `id`                 | `integer` | 상품 아이디         |
+        | `name`               | `string`  | 상품 이름           |
+        | `artist`             | `string`  | 상품 아티스트       |
+        | `imgPath`            | `string`  | 상품 사진 경로      |
+        | `price`              | `integer` | 상품 가격           |
+        | `discountPer`        | `integer` | 상품 할인율         |
+        | `description`        | `string`  | 상품 설명           |
+        | `descriptionImgPath` | `string`  | 상품 설명 사진 경로 |
         - 상품 목록 조회 성공
       - **404 Not Found**
         - 해당 상품이 존재하지 않는 경우 발생
-        
+
 ---
 
 <br>
@@ -786,6 +788,14 @@
 
     - **응답 (Response)**
       - **200 OK**
+        ```json
+        {
+          "id": 123
+        }
+        ```
+        | 필드명 | 타입      | 설명           |
+        | ------ | --------- | -------------- |
+        | `id`   | `integer` | 생성된 주문 ID |
         - 주문 생성 성공
 
 <br>
@@ -806,12 +816,19 @@
 ## 변경 이력
 
 ### [2025-02-15] - URL 구조 개선 및 상품 목록 수정
+
 - 불필요한 `v1` 제거하여 API URL 단순화 (`/v1` → `/api/items`)
 - 클래스 단위의 `@RequestMapping` 적용 (각 도메인 Controller에서 공통 URL 매핑)
 - 개별 메서드의 `@GetMapping`에서 중복된 URL 제거
 - 상품 목록에서 할인율이 0%일 경우, 할인율을 표시하지 않도록 수정
-### [2025-02-18] - 상품 상세페이지 기능 구현 및 그에 따른 로직 수정
-- 상품 상세페이지 추가
+
+### [2025-02-18] - 상품 상세 페이지 추가 및 페이지 이동 기능 개선
+
+- 상품 상세 페이지 추가
 - items 테이블에 description(상품 설명), description_img_path(상품 설명 이미지) 컬럼 추가
-- 특정 상품 조회 API 추가(`GET /api/items/${itemId}`)
-- 홈페이지 상품 목록에서 상품 상세 페이지로 넘어가는 기능 추가
+- 특정 상품 조회 API 추가 (`GET /api/items/{itemId}`)
+- 홈페이지 상품 목록에서 상품 상세 페이지로 이동하는 기능 추가
+- 로그인 및 로그아웃 시 리디렉트 처리 추가
+- 장바구니 페이지에서 주문 상품 클릭 시 해당 상품 상세 페이지로 이동하도록 수정
+- 주문 완료 후, 해당 주문의 상세 페이지로 이동하도록 변경
+- 주문 상세 페이지에서 주문 상품 클릭 시 해당 상품의 상세 페이지로 이동하도록 수정
