@@ -67,12 +67,11 @@
 
 1. **사용자 기능**
    - **회원 관리**: 회원 가입, 로그인, 로그아웃, 로그인 상태 확인 (JWT 기반 인증)
-   - **상품 관리**: LP 상품 목록 조회, ~~상품 상세 페이지 (추후 추가 예정)~~
+   - **상품 관리**: LP 상품 목록 조회, 상품 상세 페이지
    - **장바구니 기능**: 로그인한 회원 장바구니에 상품 추가 및 삭제 가능
    - **주문 관리**: 주문 내역 조회 및 신규 주문 추가
 2. **개선 및 추가 기능 계획**
     - **사용자 기능 강화**
-      - **상품 상세 페이지 추가** – 상품의 상세 정보 페이지 구현 (리뷰 및 평점 기능 연계)<br>
       - **검색 및 필터 기능 추가** – 아티스트 검색 및 필터링 기능 구현<br>
       - **리뷰 및 평점 시스템 도입** – 사용자가 상품 리뷰 및 평점을 작성할 수 있도록 기능 추가<br>
     - **관리자 기능 추가**
@@ -96,6 +95,7 @@
    - 주문 내역 바로가기
    - 장바구니 바로가기
    - 로그아웃 기능 (`POST /api/accounts/logout`)
+   - 상품 상세 페이지로 이동 (`GET /api/items/${itemId}`)
    - 장바구니 담기 기능 (`POST /api/carts`)
      - [장바구니 담기] 버튼 클릭 알림(alert) 표시
        - 로그인 전: ‘로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?’
@@ -108,7 +108,7 @@
 
        ![로그인 후 화면](https://postfiles.pstatic.net/MjAyNTAyMTVfOTIg/MDAxNzM5NTQ2NDk2NDky.6SUqQofSzryYmrQLDvkfVsOBHMbviKNNeQYxiApLV8wg.Czptt30aJ5snvO9ATg7KErPvXkEdQ_7tileGkd_gK0Ig.PNG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%9B%84.png?type=w966)
 
-   ![홈(상품 목록) 페이지](https://postfiles.pstatic.net/MjAyNTAyMTVfMjMy/MDAxNzM5NTQ2NDk2ODgz.spF6PnbYrbC0s0Xir3z1FSq0bUsT4O8yc5hVtk3Bl30g.L8hkx_DTrYe4JL5H117JxXC1monrtaJ_9ZOgITzjuvQg.PNG/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
+   ![홈(상품 목록) 페이지](https://postfiles.pstatic.net/MjAyNTAyMThfMTM3/MDAxNzM5ODUxMTgyNDYy._J6iCGPBy-LCh1Fxhzqwpc9tImTzjOVRAfvadpy2QOEg.FJ8tBGYkC7vjZk6nDYV0y0vxP0QKs5W2jLDjm676rmIg.PNG/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
 
 2. **회원가입 페이지**
 
@@ -135,11 +135,21 @@
    - 장바구니 전체 상품 조회 (`GET /api/carts/items`)
    - 주문하기 바로가기
    - 장바구니 상품 삭제 기능
-     - [x] 클릭 알림(alert) 표시. ‘선택하신 장바구니의 상품을 삭제했습니다.
+     - [ x ] 클릭 알림(alert) 표시. ‘선택하신 장바구니의 상품을 삭제했습니다.
 
    ![장바구니 페이지](https://postfiles.pstatic.net/MjAyNTAyMTVfNTQg/MDAxNzM5NTQ2NDk2NTI0.AknqgYs7KTI_AxDMIJhZjp_Z9azoulq1QtSy9hDBrnkg.js8s5Ez94iJDWdi0xVAt_cVHFw9PphAeVgf0iNeTJqEg.PNG/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88.png?type=w966)
 
-5. **주문하기 페이지**
+5. **상품 상세 페이지**
+
+   - 해당 상품 조회 (`GET /api/items/${itemId}`)
+   - 상품 설명 및 이미지 표시
+   - [주문하기] 버튼 클릭 시 주문하기 페이지로 이동
+   - [장바구니] 버튼 클릭 시 장바구니 담기 및 알림(alert) 표시
+     - ’장바구니에 상품을 담았습니다. 장바구니로 이동하시겠습니까?’
+    
+   ![상품 상세세 페이지](https://postfiles.pstatic.net/MjAyNTAyMThfNTgg/MDAxNzM5ODUwMzA5MjU5.Ugl-PMetYWUrNAGQJ8s2VHIb0NivEpE0GjPA06qxzJUg.A67khguBCc487rNTs7hWKmrbuLVKMMhBZRe3vMRwLw8g.PNG/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
+
+6. **주문하기 페이지**
 
    - 주문 정보 입력 후 주문 요청 (`POST /api/orders`)
    - 입력 필드:
@@ -156,7 +166,7 @@
 
    ![주문하기 페이지](https://postfiles.pstatic.net/MjAyNTAyMTVfOTQg/MDAxNzM5NTQ2NDk2Njkx.N-VFrcFWZjrv3B635eEN5LkWshaphW1H5urEZYhxDeUg._sBjG94b8lfMzXAPAg6ZyR1gZZu8ryWl_wbXEfg1PJ0g.PNG/%EC%A3%BC%EB%AC%B8%ED%95%98%EA%B8%B0.png?type=w966)
 
-6. **주문 내역 페이지**
+7. **주문 내역 페이지**
 
    - 로그인한 회원의 주문 내역 조회 (`GET /api/orders`)
    - 주문 내역 목록을 테이블 형식으로 표시
@@ -168,7 +178,7 @@
 
    ![주문 내역 페이지](https://postfiles.pstatic.net/MjAyNTAyMTVfMTIx/MDAxNzM5NTQ2NDk2Njk0.8g1jsiOBv3K9MYXukw_NwWcAV2p9HB3BSVmhm2L4lBYg.vL16sgUvK0Y3LxEL1eJVfxG7sSioBsrAv9X4GLRZVHwg.PNG/%EC%A3%BC%EB%AC%B8%EB%82%B4%EC%97%AD.png?type=w3840)
 
-7. **주문 상세 내역 페이지**
+8. **주문 상세 내역 페이지**
 
    - 해당 주문의 상세 내역 조회 (`GET /api/orders/{id}`)
    - 주문 내용 및 주문 상품 목록 표시
@@ -182,7 +192,7 @@
 
 ## 엔티티 구조
 
-![엔티티 구조](https://postfiles.pstatic.net/MjAyNTAyMTVfMjAx/MDAxNzM5NTQ2NDk2NTMy.qIedZng260pQOGrS0Zuc9WI6jCyYJGG7-NbZXSoTPtsg.RVDoySboWOFa7ISumBnG2i8XivKpl1WkU0u0eq_Prx8g.PNG/%EC%97%94%ED%8B%B0%ED%8B%B0%EA%B5%AC%EC%A1%B0.png?type=w966)
+![엔티티 구조](https://postfiles.pstatic.net/MjAyNTAyMThfMyAg/MDAxNzM5ODUxMTIyNTIy.h1t6y6JyVu_r-wKORwyYcsjJhS8rscjQf_81XRMC3jMg.cavFALr_WHj0qYsTf2osg6SoaC5qfP8ZrXr0ffO2Jzcg.PNG/%EC%97%94%ED%8B%B0%ED%8B%B0%EA%B5%AC%EC%A1%B0.png?type=w966)
 
 <br>
 <br>
@@ -373,7 +383,9 @@
             "artist": "LUCY",
             "imgPath": "/img/LUCY___CHAPTER_OF_YOUTH.jpg",
             "price": 300000,
-            "discountPer": 15
+            "discountPer": 15,
+            "description": "LUCY 상세 설명",
+            "descriptionImgPath": "/img/LUCY___CHAPTER_OF_YOUTH_2.jpg"
           },
           {
             "id": 2,
@@ -381,7 +393,9 @@
             "artist": "페퍼톤스",
             "imgPath": "/img/PEPPERTONES___Colorful_Express.jpg",
             "price": 400000,
-            "discountPer": 20
+            "discountPer": 20,
+            "description": "페퍼톤스 상세 설명",
+            "descriptionImgPath": "/img/PEPPERTONES___Colorful_Express_2.jpg"
           },
           {
             "id": 3,
@@ -389,7 +403,9 @@
             "artist": "소란",
             "imgPath": "/img/SORAN___Share.jpg",
             "price": 500000,
-            "discountPer": 25
+            "discountPer": 25,
+            "description": "소란 상세 설명",
+            "descriptionImgPath": "/img/SORAN___Share_2.jpg"
           }
         ]
         ```
@@ -401,9 +417,66 @@
         | `imgPath`     | `string`  | 상품 사진 경로 |
         | `price`       | `integer` | 상품 가격      |
         | `discountPer` | `integer` | 상품 할인율    |
+        | `description`     | `string`  | 상품 설명 |
+        | `descriptionImgPath`     | `string`  | 상품 설명 사진 경로 |
         - 상품 목록 조회 성공
         - List 형태로 반환
 
+---
+
+<br>
+
+2.  **특정 상품 조회(`GET /api/items/${itemId}`)**
+
+    - **특정 상품 조회하는 API**
+    - **Method:** `GET`
+    - **URL:** `/api/items/${itemId}`
+    - **요청 (Request)**
+
+      - **Headers:**
+        | Key | Value | 설명 |
+        | -------------- | ------------------ | ------------------------- |
+        | `Content-Type` | `application/json` | 요청 본문 타입 (JSON) |
+        | `Accept` | `application/json` | 서버가 응답할 데이터 타입 |
+        
+      - **Path Variable:**
+        ```json
+        {
+          "itemId": 1
+        }
+        ```
+        | 필드명   | 타입      | 필수 여부 | 설명                            |
+        | -------- | --------- | --------- | ------------------------------- |
+        | `itemId` | `integer` | Y         | 조회할 상품 아이디 |
+
+    - **응답 (Response)**
+      - **200 OK**
+        ```json
+        {
+             "id": 14,
+             "name": "선물",
+             "artist": "백예린",
+             "imgPath": "/img/YerinBaek___Present.jpg",
+             "price": 700000,
+             "discountPer": 35,
+             "description": "백예린 리메이크 앨범 [선물]의 바이닐입니다. 싱글 커버에 가사지 1장이 포함되어 있습니다.",
+             "descriptionImgPath": "/img/YerinBaek___Present_2.jpg"
+         }
+        ```
+        | 필드명        | 타입      | 설명           |
+        | ------------- | --------- | -------------- |
+        | `id`          | `integer` | 상품 아이디    |
+        | `name`        | `string`  | 상품 이름      |
+        | `artist`      | `string`  | 상품 아티스트  |
+        | `imgPath`     | `string`  | 상품 사진 경로 |
+        | `price`       | `integer` | 상품 가격      |
+        | `discountPer` | `integer` | 상품 할인율    |
+        | `description`     | `string`  | 상품 설명 |
+        | `descriptionImgPath`     | `string`  | 상품 설명 사진 경로 |
+        - 상품 목록 조회 성공
+      - **404 Not Found**
+        - 해당 상품이 존재하지 않는 경우 발생
+        
 ---
 
 <br>
@@ -730,10 +803,15 @@
 <br>
 <br>
 
-## Changelog
+## 변경 이력
 
 ### [2025-02-15] - URL 구조 개선 및 상품 목록 수정
 - 불필요한 `v1` 제거하여 API URL 단순화 (`/v1` → `/api/items`)
 - 클래스 단위의 `@RequestMapping` 적용 (각 도메인 Controller에서 공통 URL 매핑)
 - 개별 메서드의 `@GetMapping`에서 중복된 URL 제거
 - 상품 목록에서 할인율이 0%일 경우, 할인율을 표시하지 않도록 수정
+### [2025-02-18] - 상품 상세페이지 기능 구현 및 그에 따른 로직 수정
+- 상품 상세페이지 추가
+- items 테이블에 description(상품 설명), description_img_path(상품 설명 이미지) 컬럼 추가
+- 특정 상품 조회 API 추가(`GET /api/items/${itemId}`)
+- 홈페이지 상품 목록에서 상품 상세 페이지로 넘어가는 기능 추가
