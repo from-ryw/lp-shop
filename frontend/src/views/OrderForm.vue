@@ -139,7 +139,7 @@ onMounted(async () => {
           <ul class="items list-group mb-3">
             <li class="p-3 list-group-item d-flex justify-content-between" v-for="i in state.items">
               <div>
-                <h6 class="my-0">{{ i.name }}</h6>
+                <h6 class="my-0">[{{ i.artist }}] {{ i.name }}</h6>
               </div>
               <span class="text-muted">
                 {{ (i.price - i.price * i.discountPer / 100).toLocaleString() }}원
