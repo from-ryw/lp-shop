@@ -90,6 +90,20 @@ const submit = async () => {
   }
 };
 
+// 도로명 주소 검색
+const openAddressPopup = async () => {
+  new daum.Postcode({
+    oncomplete: (data) => {
+      // 사용자가 주소를 선택했을 때 실행되는 콜백 함수
+      let fullAddress = `(${data.zonecode}) ${data.roadAddress}`; // (우편번호) 도로명 주소
+      if (data.buildingName) {
+        fullAddress += ` (${data.buildingName})`; // 건물명이 있으면 추가
+      }
+      state.form.address = fullAddress; // 입력창에 주소 반영
+    },
+  }).open();
+}
+
 // 커스텀 생성 훅
 onMounted(async () => {
   const itemId = route.query.itemId;
@@ -154,7 +168,10 @@ onMounted(async () => {
 
             <div class="col-12 pt-1">
               <label for="address" class="form-label">주소</label>
-              <input type="text" class="form-control p-3" id="address" v-model="state.form.address">
+              <div class="d-flex gap-2">
+                <input type="text" class="form-control p-3 flex-grow-1 w-75" id="address" v-model="state.form.address">
+                <span @click="openAddressPopup()" class="btn btn-light border d-flex align-items-center">검색</span>
+              </div>
             </div>
           </div>
 
