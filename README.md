@@ -17,7 +17,6 @@
 - [API](#api)
 - [프로젝트 기능](#프로젝트-기능)
 - [학습 내용](#학습-내용)
-- [변경 이력](#변경-이력)
 
 <br>
 <br>
@@ -83,7 +82,6 @@
    - **보안 및 서비스 안정성 개선**
      - **생성자 및 수정자 필드 추가** – 생성자(createdBy) 및 수정자(updatedBy) 저장 기능 구현
      - **예외 및 유효성 처리 보강** – 현재 미흡한 예외 및 유효성 로직을 개선
-     - **주소 API 연동** – 행정안전부 도로명 주소 API를 활용한 주소 자동 입력 기능 추가
 
 <br>
 <br>
@@ -113,7 +111,7 @@
 
        ![로그인 후 화면](https://postfiles.pstatic.net/MjAyNTAyMTVfOTIg/MDAxNzM5NTQ2NDk2NDky.6SUqQofSzryYmrQLDvkfVsOBHMbviKNNeQYxiApLV8wg.Czptt30aJ5snvO9ATg7KErPvXkEdQ_7tileGkd_gK0Ig.PNG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%9B%84.png?type=w966)
 
-   ![홈(상품 목록) 페이지](https://postfiles.pstatic.net/MjAyNTAyMThfMTM3/MDAxNzM5ODUxMTgyNDYy._J6iCGPBy-LCh1Fxhzqwpc9tImTzjOVRAfvadpy2QOEg.FJ8tBGYkC7vjZk6nDYV0y0vxP0QKs5W2jLDjm676rmIg.PNG/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
+   ![홈(상품 목록) 페이지](https://postfiles.pstatic.net/MjAyNTAyMTlfMjQ1/MDAxNzM5OTY3MzQ5MTA2.3Y1tBevr_OY7Shc05eJGNjUqs6Jc9T0DzRuez6U9ivgg.JhVujr8SL9tZch3Ih-e3VVtHwFjasMwD1US8VTiwncEg.PNG/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
 
 2. **회원가입 페이지**
 
@@ -152,7 +150,7 @@
    - [장바구니] 버튼 클릭 시 장바구니 담기 및 알림(alert) 표시
      - ’장바구니에 상품을 담았습니다. 장바구니로 이동하시겠습니까?’
 
-   ![상품 상세세 페이지](https://postfiles.pstatic.net/MjAyNTAyMThfNTgg/MDAxNzM5ODUwMzA5MjU5.Ugl-PMetYWUrNAGQJ8s2VHIb0NivEpE0GjPA06qxzJUg.A67khguBCc487rNTs7hWKmrbuLVKMMhBZRe3vMRwLw8g.PNG/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
+   ![상품 상세 페이지](https://postfiles.pstatic.net/MjAyNTAyMTlfMjEg/MDAxNzM5OTY3MzQ4OTg0.V2Ac0bVerKMP_MEXW02scFYzyawRrTjZkBQ6PlwbcNEg.wcsutJev2njHgBkISKIi0DcHDyAmqWrk1HOOvzrZ-9Ug.PNG/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
 
 6. **주문하기 페이지**
 
@@ -161,6 +159,9 @@
      - 주문자 정보: 이름, 주소
      - 결제 수단: 신용카드 / 무통장입금 선택
      - 카드 결제 선택 시 카드 번호 입력 필드 활성화
+   - 주소의 [검색] 버튼 클릭 시 도로명 주소 검색 팝업 생성([Daum 우편번호 서비스 API](https://postcode.map.daum.net/guide) 사용)
+     - 팝업에서 주소 선택 시 `(우편번호) 도로명 주소` 형식으로 주소 칸에 입력됨
+      ![도로명 주소 검색 팝업](https://postfiles.pstatic.net/MjAyNTAyMTlfMTUg/MDAxNzM5OTY3NjU4OTU0.NCIZ4FOlcGF-B3FIq1F4x4kkrdphjVhyGkH3qU-rMvIg.KOwwmvBbFKQZu34X7SDgcdtBf9ReM2PApaE6Nx4GPb8g.PNG/%EB%8F%84%EB%A1%9C%EB%AA%85%EC%A3%BC%EC%86%8C_%EA%B2%80%EC%83%89_%ED%8C%9D%EC%97%85.png?type=w966)
    - 주문 상품 목록 표시: 선택한 상품과 총 결제 금액을 보여줌
      - 주문 상품 목록 조회 (`GET /api/carts/items`)
    - [결제하기] 버튼 클릭 시 주문 완료 및 알림(alert) 표시 후 메인 페이지로 이동
@@ -169,7 +170,7 @@
      - 결제 수단 ‘무통장입금’ 선택 시
        - ‘주문이 완료되었습니다. 한국은행 123-456789-777 계좌로 ${price}원을 입금해주시기 바랍니다.’ 문구 추가
 
-   ![주문하기 페이지](https://postfiles.pstatic.net/MjAyNTAyMTVfOTQg/MDAxNzM5NTQ2NDk2Njkx.N-VFrcFWZjrv3B635eEN5LkWshaphW1H5urEZYhxDeUg._sBjG94b8lfMzXAPAg6ZyR1gZZu8ryWl_wbXEfg1PJ0g.PNG/%EC%A3%BC%EB%AC%B8%ED%95%98%EA%B8%B0.png?type=w966)
+   ![주문하기 페이지](https://postfiles.pstatic.net/MjAyNTAyMTlfMTA3/MDAxNzM5OTY3NjU4OTU1.K_49ZyBZB4FUH8Jw2Zb0BWAr9GmYjxcPyMq5y8LLvCog.Ru9UQctBfoGnkWUOLy7RViaowyKzZ3ONxGaDDVBU1Fkg.PNG/%EC%A3%BC%EB%AC%B8%ED%95%98%EA%B8%B0.png?type=w966)
 
 7. **주문 내역 페이지**
 
@@ -808,7 +809,7 @@
 - [인터셉터](https://cerulean-log-e29.notion.site/199e0e4e088f80a38624f6072a626bd2?pvs=73)
 - [토큰](https://cerulean-log-e29.notion.site/199e0e4e088f8079902df10db200050c?pvs=73)
 - [암호화 및 복호화 / 해싱](https://cerulean-log-e29.notion.site/199e0e4e088f80b38a16cf8be5eb9e07?pvs=73)
-- [페이지네이션션](https://cerulean-log-e29.notion.site/199e0e4e088f80c3a4dbc0caf3d70446?pvs=73)
+- [페이지네이션](https://cerulean-log-e29.notion.site/199e0e4e088f80c3a4dbc0caf3d70446?pvs=73)
 
 <br>
 <br>
@@ -832,3 +833,9 @@
 - 장바구니 페이지에서 주문 상품 클릭 시 해당 상품 상세 페이지로 이동하도록 수정
 - 주문 완료 후, 해당 주문의 상세 페이지로 이동하도록 변경
 - 주문 상세 페이지에서 주문 상품 클릭 시 해당 상품의 상세 페이지로 이동하도록 수정
+
+### [2025-02-19] - 도로명 주소 API 연동
+
+- [Daum 우편번호 서비스](https://postcode.map.daum.net/guide) 를 이용하여 도로명 주소 API 연동
+- 주문하기 페이지에서 [검색] 버튼 클릭 시 도로명 주소 검색 팝업 생성
+- 팝업에서 주소 선택 시 `(우편번호) 도로명 주소` 형식으로 주소 칸에 입력됨
