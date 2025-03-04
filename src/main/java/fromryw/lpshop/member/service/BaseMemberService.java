@@ -17,9 +17,6 @@ public class BaseMemberService implements MemberService {
 
     private final MemberRepository memberRepository;
 
-    @PersistenceContext
-    private EntityManager entityManager;
-
     // 회원 데이터 저장
     @Transactional
     @Override

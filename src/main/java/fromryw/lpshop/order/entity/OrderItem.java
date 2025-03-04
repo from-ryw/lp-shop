@@ -3,9 +3,6 @@ package fromryw.lpshop.order.entity;
 import fromryw.lpshop.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Entity
