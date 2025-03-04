@@ -3,11 +3,9 @@ package fromryw.lpshop.config;
 import fromryw.lpshop.account.helper.AccountHelper;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.data.domain.AuditorAware;
-import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-@Component
 public class AuditorAwareImpl implements AuditorAware<Integer> {
 
     private final AccountHelper accountHelper;
