@@ -81,7 +81,6 @@
      - **관리자 기능 확장** – 상품 및 주문을 관리할 수 있는 기능 추가
      - **관리자 대시보드 추가** – 매출 데이터 및 사용자 관리 기능 제공
    - **보안 및 서비스 안정성 개선**
-     - **생성자 및 수정자 필드 추가** – 생성자(createdBy) 및 수정자(updatedBy) 저장 기능 구현
      - **예외 및 유효성 처리 보강** – 현재 미흡한 예외 및 유효성 로직을 개선
 
 <br>
@@ -811,6 +810,7 @@
 - [토큰](https://cerulean-log-e29.notion.site/19ae0e4e088f8039b2dfd5cccbfb0e5b)
 - [암호화 및 복호화 / 해싱](https://cerulean-log-e29.notion.site/19ae0e4e088f8003be09d9a8e634bb09?pvs=73)
 - [페이지네이션](https://cerulean-log-e29.notion.site/19ae0e4e088f80ae922dfc892250a29c?pvs=73)
+- [JPA Auditing](https://cerulean-log-e29.notion.site/JPA-Auditing-1ace0e4e088f80ecba05ef101134d3c6)
 
 <br>
 <br>
@@ -840,3 +840,8 @@
 - [Daum 우편번호 서비스](https://postcode.map.daum.net/guide) 를 이용하여 도로명 주소 API 연동
 - 주문하기 페이지에서 [검색] 버튼 클릭 시 도로명 주소 검색 팝업 생성
 - 팝업에서 주소 선택 시 `(우편번호) 도로명 주소` 형식으로 주소 칸에 입력됨
+
+### [2025-03-04] - JPA Auditing을 활용한 엔티티 자동 반영 기능 추가
+
+- BaseEntity에 @PrePersist, @PreUpdate 로직 추가
+- createdBy, updatedBy가 자동으로 반영되도록 변경
