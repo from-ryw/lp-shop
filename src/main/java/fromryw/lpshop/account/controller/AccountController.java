@@ -33,7 +33,7 @@ public class AccountController {
      * @return
      */
     @PostMapping("/join")
-    public ResponseEntity<?> join(@RequestBody AccountJoinRequest joinReq) {
+    public ResponseEntity<?> join(HttpServletRequest req, @RequestBody AccountJoinRequest joinReq) {
         // 입력 값이 비어 있다면
         if (!StringUtils.hasLength(joinReq.getName())
                 || !StringUtils.hasLength(joinReq.getLoginId())
@@ -46,7 +46,10 @@ public class AccountController {
             return new ResponseEntity<>(HttpStatus.CONFLICT); // 상태코드 409(충돌 데이터가 있음)
         }
 
-        accountHelper.join(joinReq);
+        // 로그인 회원 아이디
+        Integer memberId = accountHelper.getMemberId(req);
+
+        accountHelper.join(joinReq, memberId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

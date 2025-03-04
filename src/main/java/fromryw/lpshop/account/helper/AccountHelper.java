@@ -8,7 +8,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public interface AccountHelper {
 
     // 회원가입
-    void join(AccountJoinRequest joinReq);
+    void join(AccountJoinRequest joinReq, Integer memberId);
 
     // 로그인
     String login(AccountLoginRequest loginReq, HttpServletRequest req, HttpServletResponse res);

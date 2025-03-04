@@ -46,7 +46,7 @@ public class TokenAccountHelper implements AccountHelper {
 
     // 회원가입
     @Override
-    public void join(AccountJoinRequest joinReq) {
+    public void join(AccountJoinRequest joinReq, Integer memberId) {
         memberService.save(joinReq.getName(), joinReq.getLoginId(), joinReq.getLoginPw());
     }
 

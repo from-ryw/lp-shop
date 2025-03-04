@@ -3,8 +3,11 @@ package fromryw.lpshop.member.service;
 import fromryw.lpshop.common.util.HashUtils;
 import fromryw.lpshop.member.entity.Member;
 import fromryw.lpshop.member.repository.MemberRepository;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -14,22 +17,32 @@ public class BaseMemberService implements MemberService {
 
     private final MemberRepository memberRepository;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     // 회원 데이터 저장
+    @Transactional
     @Override
-    public void save(String name, String loginId, String loginPw) { // ②
+    public void save(String name, String loginId, String loginPw) {
         // 솔트 생성
         String loginPwSalt = HashUtils.generateSalt(16);
 
         // 입력 패스워드에 솔트를 적용
         String loginPwSalted = HashUtils.generateHash(loginPw, loginPwSalt);
 
-        // 회원 데이터 저장
-        memberRepository.save(new Member(name, loginId, loginPwSalted, loginPwSalt));
+        // 회원 데이터 INSERT 실행 (createdBy = 0)
+        Member newMember = new Member(name, loginId, loginPwSalted, loginPwSalt);
+        newMember = memberRepository.save(newMember); // INSERT 실행 (id 생성됨)
+
+        newMember.setCreatedBy(newMember.getId());
+        newMember.setUpdatedBy(newMember.getId());
+
+        memberRepository.save(newMember);
     }
 
     // 회원 데이터 조회
     @Override
-    public Member find(String loginId, String loginPw) { // ③
+    public Member find(String loginId, String loginPw) {
         // 로그인 아이디로 회원 조회
         Optional<Member> memberOptional = memberRepository.findByLoginId(loginId);
 

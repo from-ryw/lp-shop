@@ -1,16 +1,14 @@
 package fromryw.lpshop.cart.entity;
 
 import fromryw.lpshop.cart.dto.CartRead;
+import fromryw.lpshop.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Entity
 @Table(name = "carts")
-public class Cart {
+public class Cart extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,20 +19,6 @@ public class Cart {
 
     @Column(nullable = false)
     private Integer itemId;
-
-    @Column(nullable = false, updatable = false)
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-
-//    @Column(nullable = false, updatable = false)
-//    private Integer createdBy;
-
-    @Column(nullable = false)
-    @CreationTimestamp
-    private LocalDateTime updatedAt;
-
-//    @Column(nullable = false)
-//    private Integer updatedBy;
 
     public Cart() {
     }

@@ -38,15 +38,15 @@ public class Order {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-//    @Column(nullable = false, updatable = false)
-//    private Integer createdBy;
+    @Column(nullable = false, updatable = false)
+    private Integer createdBy;
 
     @Column(nullable = false)
     @CreationTimestamp
     private LocalDateTime updatedAt;
 
-//    @Column(nullable = false)
-//    private Integer updatedBy;
+    @Column(nullable = false)
+    private Integer updatedBy;
 
     public Order() {
     }
@@ -58,6 +58,8 @@ public class Order {
         this.payment = payment;
         this.cardNumber = cardNumber;
         this.amount = amount;
+        this.createdBy = memberId;
+        this.updatedBy = memberId;
     }
 
     // 주문 조회 DTO(OrderRead)로 변환

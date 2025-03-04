@@ -25,21 +25,23 @@ public class OrderItem {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-//    @Column(nullable = false, updatable = false)
-//    private Integer createdBy;
+    @Column(nullable = false, updatable = false)
+    private Integer createdBy;
 
     @Column(nullable = false)
     @CreationTimestamp
     private LocalDateTime updatedAt;
 
-//    @Column(nullable = false)
-//    private Integer updatedBy;
+    @Column(nullable = false)
+    private Integer updatedBy;
 
     public OrderItem() {
     }
 
-    public OrderItem(Integer orderId, Integer itemId) {
+    public OrderItem(Integer orderId, Integer itemId, Integer memberId) {
         this.orderId = orderId;
         this.itemId = itemId;
+        this.createdBy = memberId;
+        this.updatedBy = memberId;
     }
 }

@@ -1,15 +1,17 @@
 package fromryw.lpshop.member.entity;
 
+import fromryw.lpshop.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
+@NoArgsConstructor
 @Entity
 @Table(name = "members")
-public class Member {
+public class Member extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,23 +28,6 @@ public class Member {
 
     @Column(length = 16, nullable = false)
     private String loginPwSalt;
-
-    @Column(nullable = false, updatable = false)
-    @CreationTimestamp
-    private LocalDateTime createdAt;
-
-//    @Column(nullable = false, updatable = false)
-//    private Integer createdBy;
-
-    @Column(nullable = false)
-    @CreationTimestamp
-    private LocalDateTime updatedAt;
-
-//    @Column(nullable = false)
-//    private Integer updatedBy;
-
-    public Member() {
-    }
 
     public Member(String name, String loginId, String loginPw, String loginPwSalt) {
         this.name = name;
