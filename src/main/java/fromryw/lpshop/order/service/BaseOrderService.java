@@ -95,7 +95,7 @@ public class BaseOrderService implements OrderService {
 
         // 상품 아이디만큼 주문 상품 추가
         orderReq.getItemIds().forEach((itemId) -> {
-            OrderItem newOrderItem = new OrderItem(order.getId(), itemId, memberId);
+            OrderItem newOrderItem = new OrderItem(order.getId(), itemId);
             newOrderItems.add(newOrderItem);
         });
 
