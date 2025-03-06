@@ -3,10 +3,14 @@ package fromryw.lpshop.order.entity;
 import fromryw.lpshop.common.entity.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Getter
 @Entity
 @Table(name = "order_items")
+@Getter
+@Setter
+@NoArgsConstructor
 public class OrderItem extends BaseEntity {
 
     @Id
@@ -19,8 +23,8 @@ public class OrderItem extends BaseEntity {
     @Column(nullable = false)
     private Integer itemId;
 
-    public OrderItem() {
-    }
+    @Column
+    private Integer reviewId;
 
     public OrderItem(Integer orderId, Integer itemId) {
         this.orderId = orderId;

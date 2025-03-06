@@ -19,9 +19,21 @@ public class BaseOrderItemService implements OrderItemService {
         return orderItemRepository.findAllByOrderId(orderId);
     }
 
-    // 주문 상품 데이터 저장
+    // 특정 주문 상품 데이터 조회(특정 주문의 특정 상품)
+    @Override
+    public OrderItem findByOrderIdAndItemId(Integer orderId, Integer itemId) {
+        return orderItemRepository.findByOrderIdAndItemId(orderId, itemId);
+    }
+
+    // 주문 상품 데이터 목록 전체 저장
     @Override
     public void saveAll(List<OrderItem> orderItems) {
         orderItemRepository.saveAll(orderItems);
+    }
+
+    // 주문 상품 데이터 저장
+    @Override
+    public void save(OrderItem orderItem) {
+        orderItemRepository.save(orderItem);
     }
 }

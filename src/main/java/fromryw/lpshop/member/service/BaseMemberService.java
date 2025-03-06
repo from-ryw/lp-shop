@@ -3,12 +3,11 @@ package fromryw.lpshop.member.service;
 import fromryw.lpshop.common.util.HashUtils;
 import fromryw.lpshop.member.entity.Member;
 import fromryw.lpshop.member.repository.MemberRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -68,4 +67,11 @@ public class BaseMemberService implements MemberService {
         //회원 데이터가 있으면 해당 값 리턴
         return memberRepository.findByLoginId(loginId).orElse(null);
     }
+
+    // 해당 id들의 회원 목록 조회
+    @Override
+    public List<Member> findAllByIds(List<Integer> ids) {
+        return memberRepository.findAllById(ids);
+    }
+
 }

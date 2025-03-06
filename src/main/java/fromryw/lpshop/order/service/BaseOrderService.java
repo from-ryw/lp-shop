@@ -9,14 +9,15 @@ import fromryw.lpshop.order.dto.OrderRequest;
 import fromryw.lpshop.order.entity.Order;
 import fromryw.lpshop.order.entity.OrderItem;
 import fromryw.lpshop.order.repository.OrderRepository;
+import fromryw.lpshop.review.dto.ReviewRead;
+import fromryw.lpshop.review.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -26,6 +27,7 @@ public class BaseOrderService implements OrderService {
     private final OrderItemService orderItemService;
     private final ItemService itemService;
     private final CartService cartService;
+    private final ReviewService reviewService;
 
     // 주문 목록 조회
 //    @Override
@@ -58,6 +60,27 @@ public class BaseOrderService implements OrderService {
 
             // 주문 상품 리스트의 상품 ID에 해당하는 상품 목록을 조회
             List<ItemRead> items = itemService.findAll(orderItemIds);
+
+            // 리뷰를 추가하기 위해 상품 목록(items)을 Map으로 변환
+            Map<Integer, ItemRead> itemReadMap = items.stream()
+                                                    .collect(Collectors.toMap(
+                                                            ItemRead::getId,
+                                                            item -> item,
+                                                            (existing, replacement) -> existing // 중복된 경우 기존 값 유지
+                                                    ));
+
+            // 각 상품의 리뷰를 추가
+            for (OrderItem orderItem : orderItems) {
+                ItemRead itemRead = itemReadMap.get(orderItem.getItemId());
+
+                Integer reviewId = orderItem.getReviewId();
+                if (reviewId == null) {
+                    continue; // reviewId가 없으면 건너뛰기
+                }
+                ReviewRead review = reviewService.findById(reviewId);
+                itemReadMap.put(orderItem.getItemId(), itemRead.toBuilder().review(review).build());
+            }
+            items = (List<ItemRead>) new ArrayList<>(itemReadMap.values());
 
             // 응답에 상품 리스트 데이터를 설정
             order.setItems(items);

@@ -4,10 +4,12 @@ import fromryw.lpshop.common.entity.BaseEntity;
 import fromryw.lpshop.order.dto.OrderRead;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Getter
 @Entity
 @Table(name = "orders")
+@Getter
+@NoArgsConstructor
 public class Order extends BaseEntity {
 
     @Id
@@ -31,9 +33,6 @@ public class Order extends BaseEntity {
 
     @Column(nullable = false)
     private Long amount;
-
-    public Order() {
-    }
 
     public Order(Integer memberId, String name, String address, String payment, String cardNumber, Long amount) {
         this.memberId = memberId;

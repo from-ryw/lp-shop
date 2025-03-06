@@ -2,6 +2,8 @@ package fromryw.lpshop.item.controller;
 
 import fromryw.lpshop.item.dto.ItemRead;
 import fromryw.lpshop.item.service.ItemService;
+import fromryw.lpshop.review.dto.ReviewRead;
+import fromryw.lpshop.review.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,7 @@ import java.util.List;
 public class ItemController {
 
     private final ItemService itemService;
+    private final ReviewService reviewService;
 
     /**
      * 상품 목록 전체 조회
@@ -44,6 +47,14 @@ public class ItemController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
-        return new ResponseEntity<>(item, HttpStatus.OK);
+        // 특정 상품의 리뷰 조회
+        List<ReviewRead> reviews = reviewService.findAllByItemId(id);
+
+        // 특정 상품의 정보와 리뷰
+        ItemRead itemWithReviews = item.toBuilder()
+                .reviews(reviews)
+                .build();
+
+        return new ResponseEntity<>(itemWithReviews, HttpStatus.OK);
     }
 }
