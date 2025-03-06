@@ -1,6 +1,5 @@
 package fromryw.lpshop.review.dto;
 
-import fromryw.lpshop.item.dto.ItemRead;
 import fromryw.lpshop.review.entity.Review;
 import lombok.Getter;
 import lombok.Setter;

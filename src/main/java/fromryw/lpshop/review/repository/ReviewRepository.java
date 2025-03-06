@@ -1,6 +1,5 @@
 package fromryw.lpshop.review.repository;
 
-import fromryw.lpshop.review.dto.ReviewRead;
 import fromryw.lpshop.review.entity.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 
