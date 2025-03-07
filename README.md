@@ -727,21 +727,34 @@
             "createdAt": "2025-02-12T22:40:38",
             "amount": 630000,
             "items": [
-              {
-                "id": 1,
-                "name": "CHAPTER OF YOUTH",
-                "artist": "LUCY",
-                "imgPath": "/img/LUCY___CHAPTER_OF_YOUTH.jpg",
-                "price": 300000,
-                "discountPer": 15
+                {
+                  "id": 10,
+                  "name": "CHAPTER OF YOUTH",
+                  "artist": "LUCY",
+                  "imgPath": "/img/LUCY___CHAPTER_OF_YOUTH.jpg",
+                  "price": 300000,
+                  "discountPer": 0,
+                  "description": "[Track List]\nSide A\n1. Opening\n 생략",
+                  "descriptionImgPath": "/img/LUCY___CHAPTER_OF_YOUTH_2.jpg",
+                  "review": {
+                      "memberId": 3,
+                      "orderId": 71,
+                      "itemId": 10,
+                      "rating": 5,
+                      "comment": "노래 너무 좋아요!",
+                      "updatedAt": "2025-03-07T09:01:07"
+                  }
               },
               {
-                "id": 2,
-                "name": "Share",
-                "artist": "소란",
-                "imgPath": "/img/SORAN___Share.jpg",
-                "price": 500000,
-                "discountPer": 25
+                  "id": 12,
+                  "name": "Share",
+                  "artist": "소란",
+                  "imgPath": "/img/SORAN___Share.jpg",
+                  "price": 500000,
+                  "discountPer": 25,
+                  "description": "[Track List]\nA side\n행복\n1 생략",
+                  "descriptionImgPath": null,
+                  "review": null
               }
             ]
           }
@@ -754,7 +767,7 @@
           | `payment`   | `string`         | 결제 수단 (예: `bank`, `card`) |
           | `createdAt` | `string`         | 주문 생성 일시                 |
           | `amount`    | `integer`        | 최종 결제 금액                 |
-          | `items`     | `List<ItemRead>` | 주문한 상품 목록               |
+          | `items`     | `List<ItemRead>` | 주문한 상품 목록 (리뷰포함)    |
           - 특정 주문 내역 조회 성공
           - 주문한 상품 목록 포함
         - **404 Not Found**
