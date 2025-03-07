@@ -466,14 +466,25 @@
       - **200 OK**
         ```json
         {
-          "id": 14,
-          "name": "선물",
-          "artist": "백예린",
-          "imgPath": "/img/YerinBaek___Present.jpg",
-          "price": 700000,
-          "discountPer": 35,
-          "description": "백예린 리메이크 앨범 [선물]의 바이닐입니다. 싱글 커버에 가사지 1장이 포함되어 있습니다.",
-          "descriptionImgPath": "/img/YerinBaek___Present_2.jpg"
+            "id": 14,
+            "name": "선물",
+            "artist": "백예린",
+            "imgPath": "/img/YerinBaek___Present.jpg",
+            "price": 700000,
+            "discountPer": 35,
+            "description": "백예린 리메이크 앨범 [선물]의 바이닐입니다. 생략략",
+            "descriptionImgPath": "/img/YerinBaek___Present_2.jpg",
+            "reviews": [
+                {
+                    "memberId": 4,
+                    "orderId": 61,
+                    "itemId": 14,
+                    "rating": 5,
+                    "comment": "노래 너무 좋아요!",
+                    "updatedAt": "2025-03-06T20:49:53",
+                    "memberName": "S*I"
+                }
+            ]
         }
         ```
         | 필드명               | 타입      | 설명                |
@@ -486,6 +497,7 @@
         | `discountPer`        | `integer` | 상품 할인율         |
         | `description`        | `string`  | 상품 설명           |
         | `descriptionImgPath` | `string`  | 상품 설명 사진 경로 |
+        | `reviews`            | `array`   | 리뷰 목록           |
         - 상품 목록 조회 성공
       - **404 Not Found**
         - 해당 상품이 존재하지 않는 경우 발생
