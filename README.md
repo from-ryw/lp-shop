@@ -145,12 +145,15 @@
 5. **상품 상세 페이지**
 
    - 해당 상품 조회 (`GET /api/items/${itemId}`)
-   - 상품 설명 및 이미지 표시
    - [주문하기] 버튼 클릭 시 주문하기 페이지로 이동
    - [장바구니] 버튼 클릭 시 장바구니 담기 및 알림(alert) 표시
      - ’장바구니에 상품을 담았습니다. 장바구니로 이동하시겠습니까?’
+   - 탭
+     - 상품 설명 탭 - 설명 및 이미지 표시
+     - 리뷰 탭 - 리뷰 표시
+       ![탭](https://postfiles.pstatic.net/MjAyNTAzMDdfMTQ0/MDAxNzQxMzA3ODQ1Mzcz.Eqfj_HKw0n6kAJCVtpwM2BrWfeya7wvu3QOw-mLEhlYg.Rdr_3gPGEfTZ01KQJgt5XmT0QciXFyd-_Pvxo6J_ehog.PNG/%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%ED%99%94%EB%A9%B4-%EB%A6%AC%EB%B7%B0.png?type=w966)
 
-   ![상품 상세 페이지](https://postfiles.pstatic.net/MjAyNTAyMTlfMjEg/MDAxNzM5OTY3MzQ4OTg0.V2Ac0bVerKMP_MEXW02scFYzyawRrTjZkBQ6PlwbcNEg.wcsutJev2njHgBkISKIi0DcHDyAmqWrk1HOOvzrZ-9Ug.PNG/%EC%83%81%EC%84%B8%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
+   ![상품 상세 페이지](https://postfiles.pstatic.net/MjAyNTAzMDdfMjA1/MDAxNzQxMzA3ODQ1NDA4.Kav31gWawjfDt2KZnDZlQ3UzD6ov5I1AZkry4lIhOhEg.E_ytEqyAhtjbEG2y0ue9LvAH0ZlTQVgyElK6M42kI9wg.PNG/%EC%83%81%ED%92%88%EC%83%81%EC%84%B8%ED%99%94%EB%A9%B4-%EC%84%A4%EB%AA%85.png?type=w966)
 
 6. **주문하기 페이지**
 
