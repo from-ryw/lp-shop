@@ -195,7 +195,7 @@
      - [리뷰 보기] 버튼 클릭 시 해당 리뷰의 모달 표시
        ![리뷰 보기 모달](https://postfiles.pstatic.net/MjAyNTAzMDdfMTcg/MDAxNzQxMzA3MDUzOTk5.jYQOUVKamTvKwICElI_Dy1iNTrfs7dmTUdcI2qjGjoMg.ZZUdvaH6YiUiGcuxZ2s24PVLms6zuJOPZVZISO1wHF4g.PNG/SE-fcfe0a9e-1f57-4d7e-a60d-908c81672668.png?type=w966)
      - [리뷰 작성하기] 버튼 클릭 시 해당 리뷰 작성 모달 표시
-       - [리뷰 제출] 버튼 클릭 시 리뷰 저장(`POST /api/reviews`) 완료 및 알림(alert) 표시 후 리뷰 보기로 이동
+       - [리뷰 제출] 버튼 클릭 시 리뷰 저장(`POST /api/reviews`) 완료 및 알림(alert) 표시 후 모닫 닫힘
 	![리뷰 작성하기 모달](https://postfiles.pstatic.net/MjAyNTAzMDdfMTk0/MDAxNzQxMzA3MDQ2Nzg0.inSI7wJ6j6i56ZR36k3_Ix1PsuKq90jq39tLSL5yOGAg.pAZrTO_Srqym4h-QFyD_8kX5U0rZtDiwc8wKntq5eqog.PNG/SE-7d70b541-332e-43a0-b993-93d71585b6b8.png?type=w966)
 
    ![주문 상세 내역 페이지](https://postfiles.pstatic.net/MjAyNTAzMDdfMjQ4/MDAxNzQxMzA2MDI2NjE1.iYOj_ChjN9JwLBfzz2C35tKtD-Db1fPT2jru63lnF_og.n-kpvFE7I9a-_xDJsQPMrHS05Bf6qLSuJbPGV58GLbIg.PNG/%EC%A3%BC%EB%AC%B8%EC%83%81%EC%84%B8%EB%82%B4%EC%97%AD.png?type=w3840)
