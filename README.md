@@ -189,16 +189,23 @@
    - 해당 주문의 상세 내역 조회 (`GET /api/orders/{id}`)
    - 주문 내용 및 주문 상품 목록 표시
      - 주문 내용: 주문 ID, 주문자명, 주소, 결제 금액, 결제 수단, 결제 일시
-     - 주문 상품 목록: 상품명
+     - 주문 상품 목록: 상품명, 리뷰
+   - 리뷰 모달
 
-   ![주문 상세 내역 페이지](https://postfiles.pstatic.net/MjAyNTAyMTVfMTMz/MDAxNzM5NTQ2NDk2NTE5.EuTwbY8y1KGhDEerPfUYDAWCuajBRX3hHqkNz01l4N4g.KwLzIAxcBaD5iqcAfoizHbl2ohSHSPfyN7KoxUL7aFkg.PNG/%EC%A3%BC%EB%AC%B8%EC%83%81%EC%84%B8%EB%82%B4%EC%97%AD.png?type=w966)
+     - [리뷰 보기] 버튼 클릭 시 해당 리뷰의 모달 표시
+       ![리뷰 보기 모달](https://postfiles.pstatic.net/MjAyNTAzMDdfMTcg/MDAxNzQxMzA3MDUzOTk5.jYQOUVKamTvKwICElI_Dy1iNTrfs7dmTUdcI2qjGjoMg.ZZUdvaH6YiUiGcuxZ2s24PVLms6zuJOPZVZISO1wHF4g.PNG/SE-fcfe0a9e-1f57-4d7e-a60d-908c81672668.png?type=w966)
+     - [리뷰 작성하기] 버튼 클릭 시 해당 리뷰 작성 모달 표시
+       - [리뷰 제출] 버튼 클릭 시 리뷰 저장(`POST /api/reviews`) 완료 및 알림(alert) 표시 후 리뷰 보기로 이동
+	![리뷰 작성하기 모달](https://postfiles.pstatic.net/MjAyNTAzMDdfMTk0/MDAxNzQxMzA3MDQ2Nzg0.inSI7wJ6j6i56ZR36k3_Ix1PsuKq90jq39tLSL5yOGAg.pAZrTO_Srqym4h-QFyD_8kX5U0rZtDiwc8wKntq5eqog.PNG/SE-7d70b541-332e-43a0-b993-93d71585b6b8.png?type=w966)
+
+   ![주문 상세 내역 페이지](https://postfiles.pstatic.net/MjAyNTAzMDdfMjQ4/MDAxNzQxMzA2MDI2NjE1.iYOj_ChjN9JwLBfzz2C35tKtD-Db1fPT2jru63lnF_og.n-kpvFE7I9a-_xDJsQPMrHS05Bf6qLSuJbPGV58GLbIg.PNG/%EC%A3%BC%EB%AC%B8%EC%83%81%EC%84%B8%EB%82%B4%EC%97%AD.png?type=w3840)
 
 <br>
 <br>
 
 ## 엔티티 구조
 
-![엔티티 구조](https://postfiles.pstatic.net/MjAyNTAyMThfMyAg/MDAxNzM5ODUxMTIyNTIy.h1t6y6JyVu_r-wKORwyYcsjJhS8rscjQf_81XRMC3jMg.cavFALr_WHj0qYsTf2osg6SoaC5qfP8ZrXr0ffO2Jzcg.PNG/%EC%97%94%ED%8B%B0%ED%8B%B0%EA%B5%AC%EC%A1%B0.png?type=w966)
+![엔티티 구조](https://postfiles.pstatic.net/MjAyNTAzMDdfNDcg/MDAxNzQxMzA2MzUxMTcx.KUg7DSaky4jsKjzxH-_ew46l4ya1RzpuTm8F61ixBgEg.ulAc19k_5XQDiKBSCPNWq1H5DyMLTFKFpHMQJ3yoJ7kg.PNG/image.png?type=w3840)
 
 <br>
 <br>
