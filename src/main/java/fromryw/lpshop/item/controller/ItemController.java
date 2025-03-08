@@ -21,7 +21,7 @@ public class ItemController {
     private final ReviewService reviewService;
 
     /**
-     * 상품 목록 전체 조회
+     * 검색조건 적용된 상품 조회
      * @return
      */
     @PostMapping
