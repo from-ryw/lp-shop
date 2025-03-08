@@ -69,14 +69,12 @@
 현재 LP SHOP은 기본적인 쇼핑몰 기능을 구현한 상태이며, 다음과 같은 기능을 추가할 예정입니다.
 
 1. **사용자 기능**
-   - **회원 관리**: 회원 가입, 로그인, 로그아웃, 로그인 상태 확인 (JWT 기반 인증)
-   - **상품 관리**: LP 상품 목록 조회, 상품 상세 페이지
+   - **회원 관리**: 회원 가입, 로그인, 로그아웃, 로그인 상태 확인(JWT 기반 인증)
+   - **상품 관리**: LP 상품 목록 조회(검색조건 포함), 상품 상세 페이지
    - **장바구니 기능**: 로그인한 회원 장바구니에 상품 추가 및 삭제 가능
    - **주문 관리**: 주문 내역 조회 및 신규 주문 추가
    - **리뷰 기능**: 리뷰 조회 및 작성 기능
 2. **개선 및 추가 기능 계획**
-   - **사용자 기능 강화**
-     - **검색 및 필터 기능 추가** – 아티스트 검색 및 필터링 기능 구현<br>
    - **관리자 기능 추가**
      - **관리자 기능 확장** – 상품 및 주문을 관리할 수 있는 기능 추가
      - **관리자 대시보드 추가** – 매출 데이터 및 사용자 관리 기능 제공
@@ -90,7 +88,7 @@
 
 1. **홈(상품 목록) 페이지**
 
-   - 전체 상품 조회 (`GET /api/items`)
+   - 상품 조회 (`POST /api/items`)
    - 로그인 바로가기
    - 회원가입 바로가기
    - 주문 내역 바로가기
@@ -111,7 +109,13 @@
 
        ![로그인 후 화면](https://postfiles.pstatic.net/MjAyNTAyMTVfOTIg/MDAxNzM5NTQ2NDk2NDky.6SUqQofSzryYmrQLDvkfVsOBHMbviKNNeQYxiApLV8wg.Czptt30aJ5snvO9ATg7KErPvXkEdQ_7tileGkd_gK0Ig.PNG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%9B%84.png?type=w966)
 
-   ![홈(상품 목록) 페이지](https://postfiles.pstatic.net/MjAyNTAyMTlfMjQ1/MDAxNzM5OTY3MzQ5MTA2.3Y1tBevr_OY7Shc05eJGNjUqs6Jc9T0DzRuez6U9ivgg.JhVujr8SL9tZch3Ih-e3VVtHwFjasMwD1US8VTiwncEg.PNG/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
+   - 검색 기능
+     - 기본 (상세검색 영역 숨김처리, 할인: 전체, 정렬: 최신순)
+      ![검색 기본 화면](https://postfiles.pstatic.net/MjAyNTAzMDlfMjYx/MDAxNzQxNDQ4OTAzMjQ4.1AtxBd1fcSFfL2QU43j8CSkgHgoUI3Ggc3jhrVeB0SQg.LqUOayuxHrCYwQ2qWeraBPSBDISkPz_mU6MZKijuAjQg.PNG/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w966)
+     - 검색조건 적용 (상세검색 → 닫기 변경, 상세검색 영역 노출)
+      ![검색조건 적용 화면](https://postfiles.pstatic.net/MjAyNTAzMDlfMjky/MDAxNzQxNDQ5MTg0NTY2.EbKzHJW8wafCWp-KQUrnWNVzNj_VfDpmMwK4FBSuYUQg.Y71m5pICfp7ble-c7Wj6BidgzAPwYv2GX0FJQfsIPOsg.PNG/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80-%EA%B2%80%EC%83%89.png?type=w966)
+
+   ![홈(상품 목록) 페이지](https://postfiles.pstatic.net/MjAyNTAzMDlfMjYx/MDAxNzQxNDQ4OTAzMjQ4.1AtxBd1fcSFfL2QU43j8CSkgHgoUI3Ggc3jhrVeB0SQg.LqUOayuxHrCYwQ2qWeraBPSBDISkPz_mU6MZKijuAjQg.PNG/%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80.png?type=w3840)
 
 2. **회원가입 페이지**
 
@@ -164,7 +168,7 @@
      - 카드 결제 선택 시 카드 번호 입력 필드 활성화
    - 주소의 [검색] 버튼 클릭 시 도로명 주소 검색 팝업 생성([Daum 우편번호 서비스 API](https://postcode.map.daum.net/guide) 사용)
      - 팝업에서 주소 선택 시 `(우편번호) 도로명 주소` 형식으로 주소 칸에 입력됨
-      ![도로명 주소 검색 팝업](https://postfiles.pstatic.net/MjAyNTAyMTlfMTUg/MDAxNzM5OTY3NjU4OTU0.NCIZ4FOlcGF-B3FIq1F4x4kkrdphjVhyGkH3qU-rMvIg.KOwwmvBbFKQZu34X7SDgcdtBf9ReM2PApaE6Nx4GPb8g.PNG/%EB%8F%84%EB%A1%9C%EB%AA%85%EC%A3%BC%EC%86%8C_%EA%B2%80%EC%83%89_%ED%8C%9D%EC%97%85.png?type=w966)
+       ![도로명 주소 검색 팝업](https://postfiles.pstatic.net/MjAyNTAyMTlfMTUg/MDAxNzM5OTY3NjU4OTU0.NCIZ4FOlcGF-B3FIq1F4x4kkrdphjVhyGkH3qU-rMvIg.KOwwmvBbFKQZu34X7SDgcdtBf9ReM2PApaE6Nx4GPb8g.PNG/%EB%8F%84%EB%A1%9C%EB%AA%85%EC%A3%BC%EC%86%8C_%EA%B2%80%EC%83%89_%ED%8C%9D%EC%97%85.png?type=w966)
    - 주문 상품 목록 표시: 선택한 상품과 총 결제 금액을 보여줌
      - 주문 상품 목록 조회 (`GET /api/carts/items`)
    - [결제하기] 버튼 클릭 시 주문 완료 및 알림(alert) 표시 후 메인 페이지로 이동
@@ -197,9 +201,8 @@
 
      - [리뷰 보기] 버튼 클릭 시 해당 리뷰의 모달 표시
        ![리뷰 보기 모달](https://postfiles.pstatic.net/MjAyNTAzMDdfMTcg/MDAxNzQxMzA3MDUzOTk5.jYQOUVKamTvKwICElI_Dy1iNTrfs7dmTUdcI2qjGjoMg.ZZUdvaH6YiUiGcuxZ2s24PVLms6zuJOPZVZISO1wHF4g.PNG/SE-fcfe0a9e-1f57-4d7e-a60d-908c81672668.png?type=w966)
-     - [리뷰 작성하기] 버튼 클릭 시 해당 리뷰 작성 모달 표시
-       - [리뷰 제출] 버튼 클릭 시 리뷰 저장(`POST /api/reviews`) 완료 및 알림(alert) 표시 후 모닫 닫힘
-	![리뷰 작성하기 모달](https://postfiles.pstatic.net/MjAyNTAzMDdfMTk0/MDAxNzQxMzA3MDQ2Nzg0.inSI7wJ6j6i56ZR36k3_Ix1PsuKq90jq39tLSL5yOGAg.pAZrTO_Srqym4h-QFyD_8kX5U0rZtDiwc8wKntq5eqog.PNG/SE-7d70b541-332e-43a0-b993-93d71585b6b8.png?type=w966)
+     - [리뷰 작성하기] 버튼 클릭 시 해당 리뷰 작성 모달 표시 - [리뷰 제출] 버튼 클릭 시 리뷰 저장(`POST /api/reviews`) 완료 및 알림(alert) 표시 후 모닫 닫힘
+       ![리뷰 작성하기 모달](https://postfiles.pstatic.net/MjAyNTAzMDdfMTk0/MDAxNzQxMzA3MDQ2Nzg0.inSI7wJ6j6i56ZR36k3_Ix1PsuKq90jq39tLSL5yOGAg.pAZrTO_Srqym4h-QFyD_8kX5U0rZtDiwc8wKntq5eqog.PNG/SE-7d70b541-332e-43a0-b993-93d71585b6b8.png?type=w966)
 
    ![주문 상세 내역 페이지](https://postfiles.pstatic.net/MjAyNTAzMDdfMjQ4/MDAxNzQxMzA2MDI2NjE1.iYOj_ChjN9JwLBfzz2C35tKtD-Db1fPT2jru63lnF_og.n-kpvFE7I9a-_xDJsQPMrHS05Bf6qLSuJbPGV58GLbIg.PNG/%EC%A3%BC%EB%AC%B8%EC%83%81%EC%84%B8%EB%82%B4%EC%97%AD.png?type=w3840)
 
@@ -466,25 +469,25 @@
       - **200 OK**
         ```json
         {
-            "id": 14,
-            "name": "선물",
-            "artist": "백예린",
-            "imgPath": "/img/YerinBaek___Present.jpg",
-            "price": 700000,
-            "discountPer": 35,
-            "description": "백예린 리메이크 앨범 [선물]의 바이닐입니다. 생략략",
-            "descriptionImgPath": "/img/YerinBaek___Present_2.jpg",
-            "reviews": [
-                {
-                    "memberId": 4,
-                    "orderId": 61,
-                    "itemId": 14,
-                    "rating": 5,
-                    "comment": "노래 너무 좋아요!",
-                    "updatedAt": "2025-03-06T20:49:53",
-                    "memberName": "S*I"
-                }
-            ]
+          "id": 14,
+          "name": "선물",
+          "artist": "백예린",
+          "imgPath": "/img/YerinBaek___Present.jpg",
+          "price": 700000,
+          "discountPer": 35,
+          "description": "백예린 리메이크 앨범 [선물]의 바이닐입니다. 생략략",
+          "descriptionImgPath": "/img/YerinBaek___Present_2.jpg",
+          "reviews": [
+            {
+              "memberId": 4,
+              "orderId": 61,
+              "itemId": 14,
+              "rating": 5,
+              "comment": "노래 너무 좋아요!",
+              "updatedAt": "2025-03-06T20:49:53",
+              "memberName": "S*I"
+            }
+          ]
         }
         ```
         | 필드명               | 타입      | 설명                |
@@ -739,34 +742,34 @@
             "createdAt": "2025-02-12T22:40:38",
             "amount": 630000,
             "items": [
-                {
-                  "id": 10,
-                  "name": "CHAPTER OF YOUTH",
-                  "artist": "LUCY",
-                  "imgPath": "/img/LUCY___CHAPTER_OF_YOUTH.jpg",
-                  "price": 300000,
-                  "discountPer": 0,
-                  "description": "[Track List]\nSide A\n1. Opening\n 생략",
-                  "descriptionImgPath": "/img/LUCY___CHAPTER_OF_YOUTH_2.jpg",
-                  "review": {
-                      "memberId": 3,
-                      "orderId": 71,
-                      "itemId": 10,
-                      "rating": 5,
-                      "comment": "노래 너무 좋아요!",
-                      "updatedAt": "2025-03-07T09:01:07"
-                  }
+              {
+                "id": 10,
+                "name": "CHAPTER OF YOUTH",
+                "artist": "LUCY",
+                "imgPath": "/img/LUCY___CHAPTER_OF_YOUTH.jpg",
+                "price": 300000,
+                "discountPer": 0,
+                "description": "[Track List]\nSide A\n1. Opening\n 생략",
+                "descriptionImgPath": "/img/LUCY___CHAPTER_OF_YOUTH_2.jpg",
+                "review": {
+                  "memberId": 3,
+                  "orderId": 71,
+                  "itemId": 10,
+                  "rating": 5,
+                  "comment": "노래 너무 좋아요!",
+                  "updatedAt": "2025-03-07T09:01:07"
+                }
               },
               {
-                  "id": 12,
-                  "name": "Share",
-                  "artist": "소란",
-                  "imgPath": "/img/SORAN___Share.jpg",
-                  "price": 500000,
-                  "discountPer": 25,
-                  "description": "[Track List]\nA side\n행복\n1 생략",
-                  "descriptionImgPath": null,
-                  "review": null
+                "id": 12,
+                "name": "Share",
+                "artist": "소란",
+                "imgPath": "/img/SORAN___Share.jpg",
+                "price": 500000,
+                "discountPer": 25,
+                "description": "[Track List]\nA side\n행복\n1 생략",
+                "descriptionImgPath": null,
+                "review": null
               }
             ]
           }
@@ -884,24 +887,25 @@
 ### [2025-03-06] - 리뷰 기능 구현 및 관련 추가 작업
 
 - CDN 추가
-	- 모달 사용을 위한 `Bootstrap JS` 추가
-	- 날짜 형식 변환을 위한 `date-fns` 추가
+  - 모달 사용을 위한 `Bootstrap JS` 추가
+  - 날짜 형식 변환을 위한 `date-fns` 추가
 - 리뷰 기능 구현
-	- `reviews` 테이블 생성
-	- 리뷰 저장 API (`POST /api/reviews`)
-	- 리뷰 저장 후, 해당 `id`를 `order_item` 테이블의 `review_id`로 저장
-	- 리뷰 조회 API 구현
-	- 특정 상품의 전체 리뷰 조회 기능 추가
+  - `reviews` 테이블 생성
+  - 리뷰 저장 API (`POST /api/reviews`)
+  - 리뷰 저장 후, 해당 `id`를 `order_item` 테이블의 `review_id`로 저장
+  - 리뷰 조회 API 구현
+  - 특정 상품의 전체 리뷰 조회 기능 추가
 - 특정 상품 조회 API 개선 (`POST /api/items/{id}`)
-	- 기존 상품 정보만 조회하던 구조에서 상품 정보 + 리뷰를 함께 조회하도록 개선
+  - 기존 상품 정보만 조회하던 구조에서 상품 정보 + 리뷰를 함께 조회하도록 개선
 - 상품 상세 화면 수정
-	- 탭 추가 (상세 정보, 리뷰)
-	- 리뷰 목록 표시 기능 추가
+  - 탭 추가 (상세 정보, 리뷰)
+  - 리뷰 목록 표시 기능 추가
 - 주문 상세 화면 수정
-	- 리뷰 모달 추가
-	- 리뷰 조회 및 저장 기능 추가
+  - 리뷰 모달 추가
+  - 리뷰 조회 및 저장 기능 추가
 
 ### [2025-03-09] - Specification을 활용한 검색 기능 구현 및 관련 추가 작업
+
 - CDN 추가
   - 아이콘 사용을 위한 `Bootstrp Icons` 추가
 - 검색 기능 구현
@@ -917,8 +921,6 @@
   - 할인율 다중 선택 지원 (`hasDiscountInRange()`)
   - 정렬 기능 추가(`sortBy()`) 추가
 - 전체 상품 조회(`GET /api/items`) → 검색조건 적용된 상품 조회(`POST /api/items`) 변경
-    - 할인율 검색 조건을 다중 적용하기 위해 기존 `GET` 요청을 `POST`로 변경
-    - `GET` 방식에서는 리스트(JSON 배열)를 전달하기 어려워 `POST` 요청으로 변경
-    - 클라이언트에서 JSON 형태로 검색 조건을 전송하여 필터링된 상품 목록을 조회하도록 개선
-
- 
+  - 할인율 검색 조건을 다중 적용하기 위해 기존 `GET` 요청을 `POST`로 변경
+  - `GET` 방식에서는 리스트(JSON 배열)를 전달하기 어려워 `POST` 요청으로 변경
+  - 클라이언트에서 JSON 형태로 검색 조건을 전송하여 필터링된 상품 목록을 조회하도록 개선
