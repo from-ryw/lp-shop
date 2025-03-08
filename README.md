@@ -900,3 +900,25 @@
 - 주문 상세 화면 수정
 	- 리뷰 모달 추가
 	- 리뷰 조회 및 저장 기능 추가
+
+### [2025-03-09] - Specification을 활용한 검색 기능 구현 및 관련 추가 작업
+- CDN 추가
+  - 아이콘 사용을 위한 `Bootstrp Icons` 추가
+- 검색 기능 구현
+  - 검색 컴포넌트 `SearchBar.vue` 생성
+    - 검색어 입력 및 상세 검색조건 선택 가능하도록 UI/기능 구현
+    - 할인율 다중 선택 및 정렬 기능 추가
+    - `emit`을 활용하여 부모 컴포넌트(`Home.vue`)와 데이터 연동
+- 홈(상품 목록) 페이지(`Home.vue`) 수정
+  - `SearchBar.vue`에서 전달받은 검색조건을 반영하여 상품 목록 갱신
+- 검색 조건을 처리하기 위한 `ItemSpecification` 추가
+  - 검색조건을 동적으로 추가하기 위한 `ItemSpecification` 생성
+  - searchKeyword 포함된 상품 조회 기능 추가 (`containsKeyword()`)
+  - 할인율 다중 선택 지원 (`hasDiscountInRange()`)
+  - 정렬 기능 추가(`sortBy()`) 추가
+- 전체 상품 조회(`GET /api/items`) → 검색조건 적용된 상품 조회(`POST /api/items`) 변경
+    - 할인율 검색 조건을 다중 적용하기 위해 기존 `GET` 요청을 `POST`로 변경
+    - `GET` 방식에서는 리스트(JSON 배열)를 전달하기 어려워 `POST` 요청으로 변경
+    - 클라이언트에서 JSON 형태로 검색 조건을 전송하여 필터링된 상품 목록을 조회하도록 개선
+
+ 
