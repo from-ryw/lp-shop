@@ -1,16 +1,14 @@
 package fromryw.lpshop.item.controller;
 
 import fromryw.lpshop.item.dto.ItemRead;
+import fromryw.lpshop.item.dto.SearchRequest;
 import fromryw.lpshop.item.service.ItemService;
 import fromryw.lpshop.review.dto.ReviewRead;
 import fromryw.lpshop.review.service.ReviewService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,9 +24,10 @@ public class ItemController {
      * 상품 목록 전체 조회
      * @return
      */
-    @GetMapping
-    public ResponseEntity<?> readAll() {
-        List<ItemRead> items = itemService.findAll();
+    @PostMapping
+    public ResponseEntity<?> searchItems(@RequestBody(required = false) SearchRequest request) {
+        System.out.println("request.getDiscountPers() = " + request.getDiscountPers());
+        List<ItemRead> items = itemService.searchItems(request.getSearchKeyword(), request.getDiscountPers(), request.getSort());
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
