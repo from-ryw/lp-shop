@@ -377,10 +377,10 @@
 
 ### **상품(item)**
 
-1.  **전체 상품 목록 조회(`GET /api/items`)**
+1.  **검색조건 적용된 상품 목록 조회(`POST /api/items`)**
 
-    - **모든 상품 목록을 조회하는 API**
-    - **Method:** `GET`
+    - **검색조건 적용된 상품 목록을 조회하는 API**
+    - **Method:** `POST`
     - **URL:** `/api/items`
     - **요청 (Request)**
 
@@ -389,40 +389,51 @@
         | -------------- | ------------------ | ------------------------- |
         | `Content-Type` | `application/json` | 요청 본문 타입 (JSON) |
         | `Accept` | `application/json` | 서버가 응답할 데이터 타입 |
+      - **Body:**
+        ```json
+        {
+          "searchKeyword": "o",
+          "discountPers": [
+            { "min": 30, "max": 40 },
+            { "min": 0, "max": 10 }
+          ],
+          "sort": "discount"
+        }
+        ```
 
     - **응답 (Response)**
       - **200 OK**
         ```json
         [
           {
-            "id": 1,
+            "id": 13,
+            "name": "GSI_Edition",
+            "artist": "터치드",
+            "imgPath": "/img/TOUCHED___GSI_Edition.jpg",
+            "price": 600000,
+            "discountPer": 30,
+            "description": "터치드(TOUCHED) GSI 에디션 바이닐...",
+            "descriptionImgPath": null
+          },
+          {
+            "id": 8,
+            "name": "CLOVER",
+            "artist": "나상현씨밴드",
+            "imgPath": "/img/BandNah___CLOVER.jpg",
+            "price": 100000,
+            "discountPer": 5,
+            "description": "나상현씨밴드의 정규 3집 앨범 [CLOVER] LP 발매...",
+            "descriptionImgPath": "/img/BandNah___CLOVER_2.jpg"
+          },
+          {
+            "id": 10,
             "name": "CHAPTER OF YOUTH",
             "artist": "LUCY",
             "imgPath": "/img/LUCY___CHAPTER_OF_YOUTH.jpg",
             "price": 300000,
-            "discountPer": 15,
-            "description": "LUCY 상세 설명",
+            "discountPer": 0,
+            "description": "[Track List]\nSide A\n1. Opening\n2. 개화 (Flowering)...",
             "descriptionImgPath": "/img/LUCY___CHAPTER_OF_YOUTH_2.jpg"
-          },
-          {
-            "id": 2,
-            "name": "Colorful Express",
-            "artist": "페퍼톤스",
-            "imgPath": "/img/PEPPERTONES___Colorful_Express.jpg",
-            "price": 400000,
-            "discountPer": 20,
-            "description": "페퍼톤스 상세 설명",
-            "descriptionImgPath": "/img/PEPPERTONES___Colorful_Express_2.jpg"
-          },
-          {
-            "id": 3,
-            "name": "Share",
-            "artist": "소란",
-            "imgPath": "/img/SORAN___Share.jpg",
-            "price": 500000,
-            "discountPer": 25,
-            "description": "소란 상세 설명",
-            "descriptionImgPath": "/img/SORAN___Share_2.jpg"
           }
         ]
         ```
