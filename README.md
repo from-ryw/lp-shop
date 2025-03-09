@@ -860,6 +860,8 @@
 - [암호화 및 복호화 / 해싱](https://cerulean-log-e29.notion.site/19ae0e4e088f8003be09d9a8e634bb09?pvs=73)
 - [페이지네이션](https://cerulean-log-e29.notion.site/19ae0e4e088f80ae922dfc892250a29c?pvs=73)
 - [JPA Auditing](https://cerulean-log-e29.notion.site/JPA-Auditing-1ace0e4e088f80ecba05ef101134d3c6)
+- [emit](https://cerulean-log-e29.notion.site/emit-1b1e0e4e088f80e3b83eedf21a1efac6)
+- [Specification](https://cerulean-log-e29.notion.site/Specification-1b1e0e4e088f8000acd7f12674f9deba)
 
 <br>
 <br>
